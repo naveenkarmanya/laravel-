@@ -20,6 +20,12 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table="user";
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
     protected $hidden = [
         'password', 'remember_token',
     ];

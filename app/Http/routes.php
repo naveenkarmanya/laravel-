@@ -6,7 +6,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', 'HomeController@home' );
+
 
 Route::get('/Counter',array(
     'as'=>'Counter',
@@ -15,3 +15,13 @@ Route::get('/Counter',array(
 
 
 
+Route::get('user/home', array(
+    'as'=>'home',
+    'uses'=>'HomeController@home' ));
+Route::post('user/login', array(
+    'as'=>'login',
+    'uses'=>'successController@login' ));
+Route::post('user/registersubmit',array(
+    'as'=>'registersubmit',
+    'uses'=>'successController@success'
+));
