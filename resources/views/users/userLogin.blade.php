@@ -84,6 +84,16 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
+                 <?php
+            if (isset($error)) {
+                echo '<div class="alert alert-danger">' . $error . '</div>';
+            }
+            if (isset($message)) {
+                echo '<div class="alert alert-danger">' . $message . '</div>';
+                
+            }
+             ?>
+        </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{ URL::route('Counter') }}">Home</a></li>
@@ -102,15 +112,6 @@
            
         </nav>
         <div class="margintop">
-        <?php
-            if (isset($error)) {
-                echo '<div class="alert alert-danger">' . $error . '</div>';
-            }
-            if (isset($message)) {
-                echo '<div class="alert alert-danger">' . $message . '</div>';
-                
-            }
-             ?>
-        </div>
+       
     </body>
 </html>

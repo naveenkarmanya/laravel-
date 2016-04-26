@@ -42,12 +42,12 @@ class successController extends Controller {
            if($users){
                
                return view("users/userLogin",array(
-                   //"Details"=>$users
+                  // "Details"=>$users
                         'message'=>'Successfully Login'
                ));
            }
            else{
-                return View('/home',array(
+                return view('/home',array(
                     'error'=>'EmailAddress or Password Incorrect'
                 ));
            }

@@ -30,3 +30,7 @@ Route::get('dropdown',array(
     'as'=>'dropdown',
     'uses'=>'dropController@dropdown'
 ));
+Route::post('search',array(
+    'as'=>'search',
+    'uses'=>'dropController@search'
+));

@@ -21,15 +21,24 @@ public function dropdown(){
        // $message->to('pawankumar.s@karmanya.co.in','naveen')->subject('test mail');
     //});
     
-    $Search=Input::get('autosuggest');
+    //$Search=Input::get('autosuggest');
    
-           $users = DB::table('Forum')->where('City','LIKE', $Search.'%')->get();
-           // print_r($users);
-    return View('dropdown', ['users1' => $users]);
+         
+            //$users = DB::table('Forum')
+                  //->where('City', 'LIKE', "%$Search%")->get();
+           //print_r($users);
+    return View('dropdown'); //['users1' => $users]);
     
               
 }
 
-
+public function search(){
+$Search=Input::get('autosuggest');
+   
+         
+            $users = DB::table('Forum')->select('City')->where('City', 'LIKE', "$Search%")->get();
+          print_r(users);
+    //return View('dropdown',['users1' => $users])
+}
  
 }
