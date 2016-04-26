@@ -84,6 +84,7 @@
         </style>
 
     </head>
+    
     <body data-spy="scroll" data-target=".navbar-collapse">
         <nav class="nav navbar-default navbar-fixed-top">
             <div class="nav container-fluid">
@@ -107,10 +108,10 @@
                     <form class="navbar-form navbar-right" id="login" action="{{ URl::route('login')}}" method="post">
                         <div class="form-group">
                              <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                            <input type="text" placeholder="Email" name='email' class="form-control">
+                            <input type="text" placeholder="Email" name='login_email' class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" placeholder="Password" name='password' class="form-control">
+                            <input type="password" placeholder="Password" name='login_password' class="form-control" required>
                         </div>
                         <input type="submit" class="btn btn-success" name='login' value='login'>
                     </form>
@@ -128,14 +129,14 @@
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                     <label for="fname" class="control-label col-md-2">First Name*:</label>
                     <div class="col-md-6">
-                        <input type="text" title="Your First name" class="form-control" id="fname" name="firstname" placeholder="First Name"></div>
+                        <input type="text" title="Your First name" class="form-control" id="fname" name="firstname" placeholder="First Name" required></div>
                     <span id="fnamelocation"></span>
 
                 </div>
                 <div class="form-group">
                     <label for="lname" title="Your Last Nmae" class="control-label col-md-2">Last Name*:</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="lname" name="lastname" placeholder="Last Name"></div>
+                        <input type="text" class="form-control" id="lname" name="lastname" placeholder="Last Name" required></div>
                     <span id="lnamelocation"></span>
 
                 </div>
@@ -144,20 +145,20 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-addon">@</span>
-                            <input type="email" class="form-control" id="email" name="email" title="Your Email" placeholder="your Email"></div>
+                            <input type="email" class="form-control" id="email" name="email" title="Your Email" placeholder="your Email" required></div>
                     </div>
                     <span id="emaillocation"></span>
                 </div>
                 <div class="form-group">
                     <label for="pwd" class="control-label col-md-2">Password*:</label>
                     <div class="col-md-6">
-                        <input type="password" title="Your Password" class="form-control" name="password" id="pwd" placeholder="Enter password"></div>
+                        <input type="password" title="Your Password" class="form-control" name="password" id="pwd" placeholder="Enter password" required></div>
                     <span id="pwdlocation"></span>
                 </div>
                 <div class="form-group">
                     <label for="cpwd" class="control-label col-md-2">Conform Password*:</label>
                     <div class="col-md-6">
-                        <input type="password" title="type same password from above field" name="conformpassword" class="form-control" id="cpwd" placeholder="Retype password"></div>
+                        <input type="password" title="type same password from above field" name="conformpassword" class="form-control" id="cpwd" placeholder="Retype password" required></div>
                     <span id="cpwdlocation"></span>
                 </div>
                 
@@ -165,7 +166,7 @@
                 <div class="form-group">
                     <label for="phone" class="control-label col-md-2">Phone Number*:</label>
                     <div class="col-md-6">
-                        <input type="tel" class="form-control" id="phone" name="phone" title="Your Phone Number" placeholder="your Phone Number" maxlength="10"></div>
+                        <input type="tel" class="form-control" id="phone" name="phone" title="Your Phone Number" placeholder="your Phone Number" maxlength="10" required></div>
                     <span id="phonelocation"></span>
                 </div>
                 

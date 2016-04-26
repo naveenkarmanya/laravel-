@@ -25,3 +25,8 @@ Route::post('user/registersubmit',array(
     'as'=>'registersubmit',
     'uses'=>'successController@success'
 ));
+
+Route::get('dropdown',array(
+    'as'=>'dropdown',
+    'uses'=>'dropController@dropdown'
+));

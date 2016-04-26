@@ -1,7 +1,3 @@
-
-
-
-
 <!Doctype Html>
 <html>
     <head>
@@ -46,7 +42,7 @@
             }
             .margintop
             {
-                margin: 30px;
+                margin: 60px;
             }
             .center
             {
@@ -96,49 +92,25 @@
                         <li><a href="{{ URL::route('Counter') }}">About us</a></li>
 
                     </ul>
-                    <form class="navbar-form navbar-right" id="login" action="{{ URl::route('Counter')}}" method="post">
-                        <div class="form-group">
-                            <input type="text" placeholder="Email" name='email' class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" placeholder="Password" name='password' class="form-control">
-                        </div>
-                        <input type="submit" class="btn btn-success" name='login' value='login'>
-                    </form>
-
+                    <ul class="nav nav-navbar pull-right">
+                    <li><a href="{{ URL::route('home') }}">LogOut</a></li>
+                    </ul>
                 </div>
 
             </div>
+            
+           
         </nav>
-        <div class="container contentContainer" id="topcontainer">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3" id="toprow">
-                    <h1>My Awesome Apps</h1>
-                    <p class="lead">This is why should download this fantastic app.</p>
-                    <p class="bold">Some more information about the app. You can go into a little more detail here if you want to.</p>
-                    <p class="bold marginTop">Interested? Join our mailing list!</p>
-
-                    <form class="margintop" >
-                        <div class="input-group">
-                            <span class="input-group-addon">@</span>
-                            <input type="email" class="form-control" placeholder="your Email">
-                        </div>
-                        <button type="submit" class="btn btn-success btn-lg margintop">Submit</button>
-                    </form>
-
-                </div>
-
-
-            </div>
-
+        <div class="margintop">
+        <?php
+            if (isset($error)) {
+                echo '<div class="alert alert-danger">' . $error . '</div>';
+            }
+            if (isset($message)) {
+                echo '<div class="alert alert-danger">' . $message . '</div>';
+                
+            }
+             ?>
         </div>
-        <!---div class="container contentContainer">
-            <div class="row center">
-                <h1 class="center title">Why This App is Awesome</h1>
-                <p class="lead center">Summary of the apps Awesomeness</p>
-            </div>
-        </div -->
-
-
     </body>
 </html>
