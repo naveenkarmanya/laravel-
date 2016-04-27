@@ -14,12 +14,12 @@ $(document).ready(
 $.ajax({
     url: 'search',
     type: 'post',
-    data: {'search_term':search_term}, 
+    data: {search_term:search_term}, 
  
     success: function (data) {
        $('.result').html(data);
        
-
+//alert(data);
                      $('.result li').click(function(){
                      var result_value = $(this).text();
                      $('.autosuggest').val(result_value);

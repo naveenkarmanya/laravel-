@@ -15,7 +15,6 @@
         <div class="dropdown">
             <ul class="result">
 
-              
             </ul>
         </div>
         </form>

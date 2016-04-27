@@ -1,6 +1,5 @@
 <?php
 
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -8,29 +7,49 @@ Route::get('/', function () {
 
 
 
-Route::get('/Counter',array(
-    'as'=>'Counter',
-    'uses'=>'counterController@home'
+Route::get('/Counter', array(
+    'as' => 'Counter',
+    'uses' => 'counterController@home'
 ));
 
 
 
 Route::get('user/home', array(
-    'as'=>'home',
-    'uses'=>'HomeController@home' ));
+    'as' => 'home',
+    'uses' => 'HomeController@home'));
 Route::post('user/login', array(
-    'as'=>'login',
-    'uses'=>'successController@login' ));
-Route::post('user/registersubmit',array(
-    'as'=>'registersubmit',
-    'uses'=>'successController@success'
+    'as' => 'login',
+    'uses' => 'successController@login'));
+Route::post('user/registersubmit', array(
+    'as' => 'registersubmit',
+    'uses' => 'successController@success'
 ));
 
-Route::get('dropdown',array(
-    'as'=>'dropdown',
-    'uses'=>'dropController@dropdown'
+Route::get('dropdown', array(
+    'as' => 'dropdown',
+    'uses' => 'dropController@dropdown'
 ));
-Route::post('search',array(
-    'as'=>'search',
-    'uses'=>'dropController@search'
+Route::post('search', array(
+    'as' => 'search',
+    'uses' => 'dropController@search'
 ));
+Route::get('user/uploadimage', array(
+    'as' => 'upload',
+    'uses' => 'uploadController@uploadimage'
+));
+
+Route::get('user/register', array(
+    'as' => 'register',
+    'uses' => 'uploadController@register'
+));
+Route::post('user/submit', array(
+    'as' => 'submit',
+    'uses' => 'uploadController@submit'
+));
+Route::post('user/Login', array(
+    'as' => 'Login',
+    'uses' => 'uploadController@Login'
+));
+Route::get('user/createalbum', array(
+    'as' => 'createalbum',
+    'uses' => 'uploadController@createalbum'));
