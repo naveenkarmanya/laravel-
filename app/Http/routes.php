@@ -52,4 +52,17 @@ Route::post('user/Login', array(
 ));
 Route::get('user/createalbum', array(
     'as' => 'createalbum',
-    'uses' => 'uploadController@createalbum'));
+    'uses' => 'uploadController@createalbum'
+    ));
+Route::post('user/createsuccess', array(
+    'as' => 'createsuccess',
+    'uses' => 'uploadController@createsuccess'
+    ));
+Route::get('user/upload', array(
+    'as' => 'image',
+    'uses' => 'uploadController@image'
+    ));
+Route::post('user/uploads', array(
+    'as' => 'imagesuccess',
+    'uses' => 'uploadController@imagesuccess'
+    ));

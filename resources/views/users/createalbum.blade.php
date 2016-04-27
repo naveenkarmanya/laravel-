@@ -88,10 +88,10 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ URL::route('upload') }}">Home</a></li>
+                    <li class="active"><a href="{{ URL::route('createsuccess') }}">Home</a></li>
 
                     <li><a href="{{ URL::route('createalbum') }}">Create Album</a></li>
-                    <li><a href="{{ URL::route('Counter') }}">Upload Images</a></li>
+                    <li><a href="{{ URL::route('image') }}">Upload Images</a></li>
                     <li><a href="{{ URL::route('Counter') }}">About us</a></li>
 
                 </ul>
@@ -115,26 +115,27 @@
         }
         ?>
     </div>
-</body>
-<div class="container">
-   <form class="form-horizontal" action="{{ URL::route('submit')}}" method="post">
-                <h1><u>Create Album</u></h1>
-                <div class="form-group">
-                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                    <label for="user" class="control-label col-md-2">Name*:</label>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" id="user" name="user" placeholder="user Name" required></div>
-                    
 
-                </div>
-                <div class="form-group">
-                    <label for="message" class="control-label col-md-2">Description*:</label>
-                    <div class="col-md-6">
-                        <textarea class="form-control"></textarea></div>
-                   
-                </div>
-                <label for="create" class="control-label col-md-2"></label>
-                <input type="submit" value="Create" name="create" class="btn btn-success">
-   </form>
-</div>
+    <div class="container">
+        <form class="form-horizontal" action="{{ URL::Route('createsuccess')}}" method="post">
+            <h1><u>Create Album</u></h1>
+            <div class="form-group">
+                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                <label for="user" class="control-label col-md-2">Name*:</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="user" name="user" placeholder="user Name" required></div>
+
+
+            </div>
+            <div class="form-group">
+                <label for="message" class="control-label col-md-2">Description*:</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" name="message"></textarea></div>
+
+            </div>
+            <label for="create" class="control-label col-md-2"></label>
+            <input type="submit" value="Create" name="create" class="btn btn-success">
+        </form>
+    </div>
+</body>
 </html>

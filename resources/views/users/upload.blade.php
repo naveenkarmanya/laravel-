@@ -8,65 +8,9 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
         <style>
-            .navbar-brand
-            {
-                font-size: 1.8em;
-            }
-            #topcontainer
-            {
-                background-image: url();
-                height: 680px;
-                width: 100%;
-                background-size:cover; 
-            }
-
-            #toprow
-            {
-                margin-top: 100px;
-                text-align: center;
-                color: white;
-
-
-
-
-            }
-            #toprow h1
-            {
-                font-size: 300%;
-
-
-            }
-            .bold
-            {
-                font-weight: bold;
-            }
-            .margintop
+             .margintop
             {
                 margin: 100px;
-            }
-            .center
-            {
-                text-align: center;
-            }
-            .title
-            {
-                margin-top: 100px;
-                font-size: 300%;
-            }
-            .marginbottom
-            {
-                margin-bottom: 30px;
-            }
-            #footer
-            {
-                background-color:#B0D1FB;
-                padding-top: 10px;
-                width:100%;
-            }
-            #login
-            {
-                valid:'has-success';
-                invalid:'has-error';
             }
 
         </style>
@@ -115,5 +59,31 @@
         }
         ?>
     </div>
-</body>
+
+<div class="container">
+    <form class="form-horizontal" action="{{ URL::Route('imagesuccess')}}" method="post" enctype="multipart/form-data">
+                <h1><u>Create Album</u></h1>
+                <div class="form-group">
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                    <label for="user" class="control-label col-md-2">Name*:</label>
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" id="user" name="upload" ></div>
+                    
+
+                </div>
+               <div class="form-group ">
+                   <label for="sel1" class="control-label col-md-2">Select list:</label>
+                   <div class="col-md-6">
+  <select class="form-control" id="sel1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select></div>
+</div>
+                <label for="create" class="control-label col-md-2"></label>
+                <input type="submit" value="Create" name="create" class="btn btn-success">
+   </form>
+</div>
+        </body>
 </html>
