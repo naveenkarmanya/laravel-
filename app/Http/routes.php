@@ -74,3 +74,8 @@ Route::get('user/myalbum', array(
     'as' => 'myalbum',
     'uses' => 'uploadController@myalbum'
 ));
+Route::get('user/about', array(
+    'as' => 'about',
+    'uses' => 'uploadController@about'
+));
+

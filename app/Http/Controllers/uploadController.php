@@ -60,10 +60,18 @@ class uploadController extends Controller {
         $LoginPassword = Input::get('login_password');
         $validateError = null;
         $validate = null;
-        $users = DB::table('Forum')->where('EmailAddress', $LoginEmailAddress)->where('Password', $LoginPassword)->get();
-
+        
+        session()->regenerate();
+        
+        $users = DB::table('Forum')->select('Forumid')->where('EmailAddress', $LoginEmailAddress)->where('Password', $LoginPassword)->get();
+        foreach($users as $values){
+            foreach($values as $value=>$key){
+             $UserId=$key;   
+            }
+        }
+       
         if ($users) {
-
+ session(['id'=>$UserId]);
             return view("users/LoginSubmit", array(
                 // "Details"=>$users
                 'message' => 'Successfully Login'
@@ -104,11 +112,27 @@ class uploadController extends Controller {
     }
 
     public function imagesuccess() {
+        
+        $select = Input::get('select');
+        $validateError = null;
+        $validate = null;
+        $Insert = DB::table('users')->insert(
+                ['select' => $select]);
+//        if ($Insert == 1) {
+//            $validate = " Create Album successfully";
+//        } else {
+//            $validateError = "Could not register try again later";
+//        }
+//
+//        return view('users/createalbum', array(
+//            'message' => $validate,
+//            'error' => $validateError
+//        ));
         session()->regenerate();
         $UserId = session('id');
         $image = Input::file('upload');
-        $album = Input::get('albumname');
-        $path = 'directory/' . $UserId . "/" . $album . "/";
+       
+        $path = 'directory/' . $UserId . "/" . $select . "/";
         $fileName = Input::file('upload')->getClientOriginalName();
 
         if (Input::file('upload')->move($path, $fileName)) {
@@ -138,7 +162,22 @@ class uploadController extends Controller {
     }
     
      public function myalbum() {
-        return view('users/myalbum');
+        
+         session()->regenerate();
+        $UserId = session('id');
+        //$result='';
+        $users = DB::table('users')->select('select')->get();
+        foreach ($users as $users1) {
+            foreach ($users1 as $x => $users2) {
+                $result[]= $users2;
+            }
+           
+           
+        }
+         return View('users/myalbum',['users2' => $result]);
+    }
+    public function about() {
+        return view('users/about');
     }
 
 }

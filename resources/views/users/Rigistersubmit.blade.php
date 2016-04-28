@@ -89,7 +89,7 @@
                         <li class="active"><a href="{{ URL::route('upload') }}">Home</a></li>
                         <li><a href="{{ URL::route('upload') }}">LogIn</a></li>
                         <li><a href="{{ URL::route('register') }}">Register</a></li>
-                        <li><a href="{{ URL::route('Counter') }}">About us</a></li>
+                        <li><a href="{{ URL::route('about') }}">About us</a></li>
 
                     </ul>
 

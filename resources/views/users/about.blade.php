@@ -8,12 +8,14 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
         <style>
-          
+            
             .margintop
             {
-                margin: 100px;
+                margin: 30px;
+                position: relative;
+                top: 100px;
             }
-         
+            
 
         </style>
 
@@ -53,36 +55,13 @@
     </nav>
 
     <div class="container-fluid margintop">
-        <?php
-        if (isset($error)) {
-            echo '<div class="alert alert-danger">' . $error . '</div>';
-        }
-        if (isset($message)) {
-            echo '<div class="alert alert-danger">' . $message . '</div>';
-        }
-        ?>
-    </div>
-
-    <div class="container">
-        <form class="form-horizontal" action="{{ URL::Route('createsuccess')}}" method="post">
-            <h1><u>Create Album</u></h1>
-            <div class="form-group">
-                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                <label for="name" class="control-label col-md-2">Name*:</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="user Name" required></div>
-
-
+        <div class="row">
+            <div class="well">
+                <h1><u>About My Gallery</u></h1>
+                
             </div>
-            <div class="form-group">
-                <label for="message" class="control-label col-md-2">Description*:</label>
-                <div class="col-md-6">
-                    <textarea class="form-control" name="message"></textarea></div>
-
-            </div>
-            <label for="create" class="control-label col-md-2"></label>
-            <input type="submit" value="Create" name="create" class="btn btn-success">
-        </form>
+            
+        </div>
     </div>
 </body>
 </html>

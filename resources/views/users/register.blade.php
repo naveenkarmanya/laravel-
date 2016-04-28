@@ -33,7 +33,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{ URL::route('upload') }}">Home</a></li>
 
-                        <li><a href="{{ URL::route('Counter') }}">About us</a></li>
+                        <li><a href="{{ URL::route('about') }}">About us</a></li>
 
                     </ul>
                     <ul class="nav navbar-nav pull-right">

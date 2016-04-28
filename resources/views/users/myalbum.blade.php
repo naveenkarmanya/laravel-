@@ -2,11 +2,11 @@
 <html>
     <head>
         <title>First template</title>
-
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+        <script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/album.js"></script>
         <style>
             
             .margintop
@@ -41,7 +41,7 @@
                     <li><a href="{{ URL::route('createalbum') }}">Create Album</a></li>
                     <li><a href="{{ URL::route('image') }}">Upload Images</a></li>
                     <li><a href="{{ URL::route('myalbum') }}">My Album</a></li>
-                    <li><a href="{{ URL::route('Counter') }}">About us</a></li>
+                    <li><a href="{{ URL::route('about') }}">About us</a></li>
 
                 </ul>
                 <ul class="nav nav-navbar pull-right">
@@ -56,8 +56,10 @@
 
     <div class="container-fluid margintop">
         <div class="row">
-            <div class="well">
-                <h1><u>Select Album</u></h1>
+            <div class="well result" id="album">
+               @foreach($users2 as $key)
+               <a href="{{URL::Route('Counter')}}"> {{$key}}</a>
+               @endforeach
                 
             </div>
             

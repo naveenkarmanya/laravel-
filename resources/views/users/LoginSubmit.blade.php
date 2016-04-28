@@ -92,7 +92,8 @@
 
                     <li><a href="{{ URL::route('createalbum') }}">Create Album</a></li>
                     <li><a href="{{ URL::route('image') }}">Upload Images</a></li>
-                    <li><a href="{{ URL::route('Counter') }}">About us</a></li>
+                    <li><a href="{{ URL::route('myalbum') }}">My Album</a></li>
+                    <li><a href="{{ URL::route('about') }}">About us</a></li>
 
                 </ul>
                 <ul class="nav nav-navbar pull-right">

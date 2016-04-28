@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/naveen/Karmanya/mydev/laravel/resources/views/uploadimage.blade.php</file>
-            <file>file:/home/naveen/Karmanya/mydev/laravel/resources/views/users/register.blade.php</file>
             <file>file:/home/naveen/Karmanya/mydev/laravel/resources/views/users/upload.blade.php</file>
+            <file>file:/home/naveen/Karmanya/mydev/laravel/resources/views/home.blade.php</file>
+            <file>file:/home/naveen/Karmanya/mydev/laravel/resources/views/users/register.blade.php</file>
             <file>file:/home/naveen/Karmanya/mydev/laravel/app/Http/routes.php</file>
-            <file>file:/home/naveen/Karmanya/mydev/laravel/resources/views/users/createalbum.blade.php</file>
+            <file>file:/home/naveen/Karmanya/mydev/laravel/resources/views/users/Rigistersubmit.blade.php</file>
+            <file>file:/home/naveen/Karmanya/mydev/laravel/resources/views/users/userRegister.blade.php</file>
+            <file>file:/home/naveen/Karmanya/mydev/laravel/public/js/album.js</file>
             <file>file:/home/naveen/Karmanya/mydev/laravel/resources/views/users/LoginSubmit.blade.php</file>
             <file>file:/home/naveen/Karmanya/mydev/laravel/app/Http/Controllers/uploadController.php</file>
         </group>

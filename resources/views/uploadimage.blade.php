@@ -31,7 +31,7 @@
                         <li class="active"><a href="{{ URL::route('upload') }}">Home</a></li>
 
                         <li><a href="{{ URL::route('register') }}">Register</a></li>
-                        <li><a href="{{ URL::route('Counter') }}">About us</a></li>
+                        <li><a href="{{ URL::route('about') }}">About us</a></li>
 
                     </ul>
                     <form class="navbar-form navbar-right" id="login" action="{{ URl::route('Login')}}" method="post">

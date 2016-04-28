@@ -38,7 +38,7 @@
                     <li><a href="{{ URL::route('createalbum') }}">Create Album</a></li>
                     <li><a href="{{ URL::route('image') }}">Upload Images</a></li>
                     <li><a href="{{ URL::route('myalbum') }}">My Albums</a></li>
-                    <li><a href="{{ URL::route('Counter') }}">About us</a></li>
+                    <li><a href="{{ URL::route('about') }}">About us</a></li>
 
                 </ul>
                 <ul class="nav nav-navbar pull-right">
@@ -50,6 +50,7 @@
 
 
     </nav>
+       
 
     <div class="container-fluid margintop">
         <?php
@@ -76,8 +77,8 @@
                <div class="form-group ">
                    <label for="sel1" class="control-label col-md-2">Select list:</label>
                    <div class="col-md-6">
-  <select class="form-control" id="sel1">
-      <option class="result">Select Name </option>
+  <select class="form-control" id="sel1" name="select">
+      <option class="result" >Select Name </option>
    
   </select></div>
 </div>
