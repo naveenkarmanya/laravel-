@@ -75,17 +75,18 @@ class uploadController extends Controller {
         }
     }
 
-  public function createalbum() {
-      return view('users/createalbum');
+    public function createalbum() {
+        return view('users/createalbum');
     }
-     public function createsuccess() {
-        $UserName = Input::get('user');
+
+    public function createsuccess() {
+        $UserName = Input::get('name');
         $Description = Input::get('message');
         $validateError = null;
         $validate = null;
         $Insert = DB::table('users')->insert(
                 ['username' => $UserName,
-                    'Message' => $Description ]);
+                    'Message' => $Description]);
         if ($Insert == 1) {
             $validate = " Create Album successfully";
         } else {
@@ -99,31 +100,47 @@ class uploadController extends Controller {
     }
 
     public function image() {
-      return view('users/upload');
-    }  
+        return view('users/upload');
+    }
+
+    public function imagesuccess() {
+        session()->regenerate();
+        $UserId = session('id');
+        $image = Input::file('upload');
+        $album = Input::get('albumname');
+        $path = 'directory/' . $UserId . "/" . $album . "/";
+        $fileName = Input::file('upload')->getClientOriginalName();
+
+        if (Input::file('upload')->move($path, $fileName)) {
+            return view('users/upload', array(
+                'message' => 'Image uploaded Successfully'
+            ));
+        } else {
+            return view('users/upload', array(
+                'error' => 'Image could not be uploaded'
+            ));
+        }
+    }
+
+    public function search123() {
+//$Search=Input::get('search_term');
+        session()->regenerate();
+        $UserId = session('id');
+        //$result='';
+        $users = DB::table('users')->select('username')->orderBy('username', 'desc')->get();
+        foreach ($users as $users1) {
+            foreach ($users1 as $x => $users2) {
+                echo '<option>' . $users2 . '</option>';
+            }
+        }
+        // echo $result;
+        //return View('search',['users1' => $users]);
+    }
     
-    
-   
-  
-     public function imagesuccess(){
-       session()->regenerate();
-       $UserId = session('id');
-       $image = Input::file('upload');
-       $album=Input::get('albumname');
-       $path='directory/'.$UserId."/".$album."/"; 
-       $fileName = Input::file('upload')->getClientOriginalName();
-      
-      if( Input::file('upload')->move($path, $fileName)){
-       return view('users/upload',array(
-           'message'=>'Image uploaded Successfully'
-      ));
-      }
-      else{
-          return view('users/upload',array(
-           'error'=>'Image could not be uploaded'
-      ));
-      }
-   }
+     public function myalbum() {
+        return view('users/myalbum');
+    }
+
 }
 
 ?>

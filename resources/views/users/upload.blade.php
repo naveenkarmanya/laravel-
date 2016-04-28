@@ -2,10 +2,11 @@
 <html>
     <head>
         <title>First template</title>
-
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+        <link rel="stylesheet" href="/css/bootstrap.min.css"><script src="/js/jquery.min.js"></script>
+         <script type="text/javascript" src="/js/upload.js"></script>
+        
+	
 
         <style>
              .margintop
@@ -20,7 +21,7 @@
         <nav class="nav navbar-default navbar-fixed-top">
             <div class="nav container-fluid">
                 <div class="navbar-header">
-                    <a href="" class="navbar-brand">My Apps</a>
+                    <a href="" class="navbar-brand">My Gallery</a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -36,6 +37,7 @@
 
                     <li><a href="{{ URL::route('createalbum') }}">Create Album</a></li>
                     <li><a href="{{ URL::route('image') }}">Upload Images</a></li>
+                    <li><a href="{{ URL::route('myalbum') }}">My Albums</a></li>
                     <li><a href="{{ URL::route('Counter') }}">About us</a></li>
 
                 </ul>
@@ -75,10 +77,8 @@
                    <label for="sel1" class="control-label col-md-2">Select list:</label>
                    <div class="col-md-6">
   <select class="form-control" id="sel1">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
+      <option class="result">Select Name </option>
+   
   </select></div>
 </div>
                 <label for="create" class="control-label col-md-2"></label>

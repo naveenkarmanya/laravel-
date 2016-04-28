@@ -92,6 +92,7 @@
 
                     <li><a href="{{ URL::route('createalbum') }}">Create Album</a></li>
                     <li><a href="{{ URL::route('image') }}">Upload Images</a></li>
+                    <li><a href="{{ URL::route('myalbum') }}">My Album</a></li>
                     <li><a href="{{ URL::route('Counter') }}">About us</a></li>
 
                 </ul>
@@ -121,9 +122,9 @@
             <h1><u>Create Album</u></h1>
             <div class="form-group">
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                <label for="user" class="control-label col-md-2">Name*:</label>
+                <label for="name" class="control-label col-md-2">Name*:</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="user" name="user" placeholder="user Name" required></div>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="user Name" required></div>
 
 
             </div>
