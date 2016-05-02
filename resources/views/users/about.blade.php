@@ -36,11 +36,9 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ URL::route('createsuccess') }}">Home</a></li>
+                    <li class="active"><a href="{{ URL::route('upload') }}">Home</a></li>
 
-                    <li><a href="{{ URL::route('createalbum') }}">Create Album</a></li>
-                    <li><a href="{{ URL::route('image') }}">Upload Images</a></li>
-                    <li><a href="{{ URL::route('myalbum') }}">My Album</a></li>
+                    
                     <li><a href="{{ URL::route('about') }}">About us</a></li>
 
                 </ul>

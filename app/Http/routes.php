@@ -78,4 +78,7 @@ Route::get('user/about', array(
     'as' => 'about',
     'uses' => 'uploadController@about'
 ));
+Route::get('spellchecker', 'counterController@spellcheck');
+Route::post('checkspelling', 'counterController@checkspelling'
+);
 

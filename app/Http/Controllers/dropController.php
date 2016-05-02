@@ -37,16 +37,14 @@ $Search=Input::get('search_term');
    
          
             $users = DB::table('users')->select('City')->where('City', 'like', $Search."%")->get();
-         foreach($users as $users1)
-         {
-              foreach($users1 as $x=>$users2)
-              {
-                  echo '<li>' . $users2 . '</li>';
-              }
-         }
-            
-          
-    //return View('search',['users1' => $users]);
+         foreach ($users as $users1) {
+            foreach ($users1 as $x => $users2) {
+                echo '<li>' . $users2 . '</li>';
+            }
+        }
+
+
+        //return View('search',['users1' => $users]);
 }
  
 }
