@@ -17,7 +17,7 @@ $(document).ready(function () {
             type: 'post',
             data: {leter: word},
             success: function (data) {
-
+//alert(data);
                 $("#list").html(data);
                 $("#list li").click(function () {
 

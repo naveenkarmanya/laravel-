@@ -44,15 +44,16 @@ class counterController extends Controller {
         $letter = substr($word, 0, 1);
         $spelling = DB::table('english')->where("word", "like", $letter . "%")->get();
 
-        foreach ($spelling as $Values) {
-            foreach ($Values as $value => $key) {
-                similar_text($word, $key, $percent);
+        foreach ($spelling as $users1) {
+            foreach ($users1 as $x => $users2) {
+         
+                similar_text($word, $users2, $percent);
                 if ($percent > 70) {
-                    $result.="<li>" . $key . "</li>";
+                    $result.="<li>" . $users2 . "</li>";
                 }
                 if ($percent > 90) {
                     $success = 1;
-                    $result2 = "<li>" . $key . "</li>";
+                    $result2 = "<li>" . $users2 . "</li>";
                 }
             }
         }
@@ -96,6 +97,15 @@ class counterController extends Controller {
             'message' => $validate,
             'error' => $validateError
         ));
+    }
+    
+    public function chat()
+    {
+        return View('users/chat');
+    }
+     public function chat123()
+    {
+        return View('users/chat');
     }
 
 }

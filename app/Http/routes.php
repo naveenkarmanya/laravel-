@@ -87,3 +87,33 @@ Route::post('guestbook', array(
 ));
 
 
+Route::get('chatbox', 'counterController@chat');
+Route::post('chatbox', array(
+    'as' => 'chat',
+    'uses' => 'counterController@chat123'
+));
+
+
+Route::get('templateengine', 'TemplateengineController@home');
+
+Route::get('currencyConvereter', 'currencyController@index');
+Route::post('currencyConvereter', array(
+    'as' => 'currencyconverter',
+    'uses' => 'currencyController@converter'
+));
+Route::get('findandreplace', 'findreplaceController@home');
+Route::post('findandreplace', array(
+    'as' => 'findandreplace',
+    'uses' => 'findreplaceController@index'
+));
+Route::get('multipleupload', 'multipleController@index');
+Route::post('multipleupload', array(
+    'as' => 'multiple',
+    'uses' => 'multipleController@multipleFile'
+));
+Route::get('securefileupload', 'securefileController@index');
+Route::post('securefileupload', array(
+    'as' => 'secure',
+    'uses' => 'securefileController@uploadFiles'
+));
+
