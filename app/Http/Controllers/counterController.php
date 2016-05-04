@@ -46,117 +46,154 @@ class counterController extends Controller {
 
         foreach ($spelling as $users1) {
             foreach ($users1 as $x => $users2) {
-         
-             similar_text($word, $users2, $percent);
-             //echo $percent; exit;
+
+                similar_text($word, $users2, $percent);
+                //echo $percent; exit;
                 if ($percent > 65) {
                     $result.="<li>" . $users2 . "</li>";
                     echo $result;
-                
-                if ($percent > 90) {
-                    $success = 1;
-                    $result2 = "<li>" . $users2 . "</li>";
+
+                    if ($percent > 90) {
+                        $success = 1;
+                        $result2 = "<li>" . $users2 . "</li>";
+                    }
                 }
             }
-        }
-        if ($success == 1) {
-            echo $result;
-        } else {
-            echo $result2;
+            if ($success == 1) {
+                echo $result;
+            } else {
+                echo $result2;
+            }
         }
     }
-    }
-    public function guest()
-    {
+
+    public function guest() {
         return View('users/guestbook');
     }
-    
-    public function guestbook()
-    {
-    $FirstName = Input::get('name');
+
+    public function guestbook() {
+        $FirstName = Input::get('name');
         $EmailAddress = Input::get('email');
-        $message=Input::get('message');
+        $message = Input::get('message');
         $validateError = null;
         $validate = null;
         $Insert = DB::table('GuestBook')->insert(
                 ['name' => $FirstName,
                     'email' => $EmailAddress,
-                     'message'=>$message
-                ]);
+                    'message' => $message
+        ]);
 //        if ($Insert == 1) {
 //            $validate = "succesfully submited ";
 //        } else {
 //            $validateError = "Something went wrong";
 //        }
-        $User=DB::table('GuestBook')->SELECT('name','email','message')->where([
-                'name'=>$FirstName,'email'=>$EmailAddress ,'message'=>$message])->get();
-      foreach($User as $values){
-            foreach($values as $value=>$key){
-             echo '<br>'.$key;
+        $User = DB::table('GuestBook')->SELECT('name', 'email', 'message')->where([
+                    'name' => $FirstName, 'email' => $EmailAddress, 'message' => $message])->get();
+        foreach ($User as $values) {
+            foreach ($values as $value => $key) {
+                echo '<br>' . $key;
             }
         }
-       
+
         return view('users/guestbook', array(
             'message' => $validate,
             'error' => $validateError
         ));
     }
-    
-    public function chat()
-    {
-        return View('users/chat');
-    }
-     public function chat123()
-    {
-//        return View('users/chat');
-        
-         if($_POST["message"]=="insert"){
-    
-   
-    $data=$_POST["data"];
-    $time=date("Y-m-d h:i:sa");
-    $query="insert into chat (user_id, message, timestamp)values( '".$_SESSION["user"]."','$data','$time')";
-    $result=mysqli_query($Link,$query);
-    
-    
-}
-    }
-     public function websiteupordown()
-    {
-        
-return View('users/upordown');
-    }
-    
-    public function upordown()
-    {
-        
 
-    $cs= curl_init($url=null);
-    curl_setopt($cs, CURLOPT_NOBODY, TRUE);
-    curl_setopt($cs, CURLOPT_FOLLOWLOCATION, TRUE);
-    $status_code=  curl_getinfo($cs,CURLINFO_HTTP_CODE);
-    return($status_code=200)?true:FALSE;
+    public function chat($name) {
+
+        return view('users/chat', ['name' => $name]);
+    }
+
+    public function chatsubmit() {
+
+        $message = Input::get('message');
+        $name = Input::get('name');
+        DB::table('chat')->insert(['name' => $name, 'message' => $message]);
+        return Redirect::route('chatbox', ['name' => $name]);
+    }
+
+    public function getchat() {
+        $returnvalue = null;
+        $result = DB::table('chat')->get();
+        foreach ($result as $values) {
+            foreach ($values as $value => $key) {
+                if ($value == 'name') {
+                    $returnvalue.="<p>" . $key . " -";
+                } else {
+                    $returnvalue.= $key . "</p>";
+                }
+            }
+        }
+        echo $returnvalue;
+    }
+
+    public function websiteupordown() {
+
+        return View('users/upordown');
+    }
+
+    public function upordown() {
 
 
-if(isset($_POST['url'])==TRUE && empty($_POST['url'])==FALSE)
-{
-    $url=  trim($_POST['url']);
-    if(filter_var($url,FILTER_VALIDATE_URL)==true)
-    {
-        if(upordown($url)==TRUE)
-        {
-        echo 'Wensite url is up';
-    }  else {
-       echo 'sorry, Website url id down'; 
+        $cs = curl_init($url = null);
+        curl_setopt($cs, CURLOPT_NOBODY, TRUE);
+        curl_setopt($cs, CURLOPT_FOLLOWLOCATION, TRUE);
+        $status_code = curl_getinfo($cs, CURLINFO_HTTP_CODE);
+        return($status_code = 200) ? true : FALSE;
+
+
+        if (isset($_POST['url']) == TRUE && empty($_POST['url']) == FALSE) {
+            $url = trim($_POST['url']);
+            if (filter_var($url, FILTER_VALIDATE_URL) == true) {
+                if (upordown($url) == TRUE) {
+                    echo 'Wensite url is up';
+                } else {
+                    echo 'sorry, Website url id down';
+                }
+            } else {
+                echo 'Invalid Url';
+            }
+        }
     }
+
+    public function album() {
+
+        $page = $_SERVER['PHP_SELF'];
+        $column = 2;
+        $base = "data";
+        $thumbs = "thumbs";
+        @$get_album = $_GET['album'];
+        if (!$get_album) {
+            $choice = "Select an Album";
+            $handle = File::directories($base);
+            // print_r($handle);
+            foreach ($handle as $file) {
+                if ($file != 'data/thumbs') {
+                    $file = substr($file, "5");
+
+                    // echo $file;
+                    $folder[] = $file;
+                }
+            }
+        }
+
+        return View('users/photoalbum', ['Photoalbum_folder' => $folder, "choice" => $choice]);
     }
-   
- else {
-        echo 'Invalid Url'; 
+
+    public function folder($folder) {
+
+        $path = 'data/' . $folder;
+        $file = File::Files($path);
+        //print_r($file);
+        return View('users/photoalbum', ['Photoalbum_image' => $folder, "image" => $file]);
     }
     
     
- }
+     public function translate() {
+
+        return View('users/translate');
     }
 
 }

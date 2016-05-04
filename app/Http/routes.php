@@ -99,10 +99,16 @@ Route::post('guestbook', array(
 
 // Chat Application -----------------------------------------------------------------
 
-Route::get('chatbox', 'counterController@chat');
-Route::post('chatbox', array(
-    'as' => 'chat',
-    'uses' => 'counterController@chat123'
+Route::get('chatbox/{name}', array(
+    'as' => 'chatbox',
+    'uses' => 'counterController@chat'));
+Route::post('chatsubmit', array(
+    'as' => '/chatsubmit',
+    'uses' => 'counterController@chatsubmit'
+));
+Route::post('getchat', array(
+    'as' => '/getchat',
+    'uses' => 'counterController@getchat'
 ));
 
 // Templateengine----------------------------------------------------------------------
@@ -145,3 +151,18 @@ Route::post('websiteupordown', array(
     'as' => 'upordown',
     'uses' => 'counterController@upordown'
 ));
+//Photo Album-----------------------------------------------------------------------
+
+Route::get('photoalbum', 'counterController@album');
+Route::get('photoalbum', array(
+    'as' => 'photoalbum',
+    'uses' => 'counterController@album'));
+Route::get('folder/{folder}', array(
+    'as' => 'folder',
+    'uses' => 'counterController@folder'));
+// Translate Language--------------------------------------------------------------
+
+Route::get('translatelanguage', 'counterController@translate');
+Route::get('photoalbum', array(
+    'as' => 'photoalbum',
+    'uses' => 'counterController@album'));
