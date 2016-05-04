@@ -5,18 +5,20 @@ Route::get('/', function () {
 });
 
 
-
+//Hit counter ----------------------------------------------------------------------------
 
 Route::get('/Counter', array(
     'as' => 'Counter',
     'uses' => 'counterController@home'
 ));
 
-
-
+//Practice userlogin page -------------------------------------------------------------------
+// email send......------------------------------------------------------------------
 Route::get('user/home', array(
     'as' => 'home',
     'uses' => 'HomeController@home'));
+
+
 Route::post('user/login', array(
     'as' => 'login',
     'uses' => 'successController@login'));
@@ -24,6 +26,8 @@ Route::post('user/registersubmit', array(
     'as' => 'registersubmit',
     'uses' => 'successController@success'
 ));
+
+//dropdown autosuggest------------------------------------------------------------------
 
 Route::get('dropdown', array(
     'as' => 'dropdown',
@@ -33,6 +37,8 @@ Route::post('search', array(
     'as' => 'search',
     'uses' => 'dropController@search'
 ));
+//Upload images ..........................................................................
+
 Route::get('user/uploadimage', array(
     'as' => 'upload',
     'uses' => 'uploadController@uploadimage'
@@ -78,14 +84,20 @@ Route::get('user/about', array(
     'as' => 'about',
     'uses' => 'uploadController@about'
 ));
+
+// spellcheck-----------------------------------------------------------------------
+
 Route::get('spellchecker', 'counterController@spellcheck');
 Route::post('checkspelling', 'counterController@checkspelling');
+//GuestBook--------------------------------------------------------------------------
+
 Route::get('guestbook', 'counterController@guest');
 Route::post('guestbook', array(
     'as' => 'guestbook',
     'uses' => 'counterController@guestbook'
 ));
 
+// Chat Application -----------------------------------------------------------------
 
 Route::get('chatbox', 'counterController@chat');
 Route::post('chatbox', array(
@@ -93,27 +105,43 @@ Route::post('chatbox', array(
     'uses' => 'counterController@chat123'
 ));
 
+// Templateengine----------------------------------------------------------------------
 
 Route::get('templateengine', 'TemplateengineController@home');
+
+// Currencyconverter-------------------------------------------------------------------
 
 Route::get('currencyConvereter', 'currencyController@index');
 Route::post('currencyConvereter', array(
     'as' => 'currencyconverter',
     'uses' => 'currencyController@converter'
 ));
+
+// find and replace-------------------------------------------------------------------
+
 Route::get('findandreplace', 'findreplaceController@home');
 Route::post('findandreplace', array(
     'as' => 'findandreplace',
     'uses' => 'findreplaceController@index'
 ));
+//multiplefile upload--------------------------------------------------------------------
+
 Route::get('multipleupload', 'multipleController@index');
 Route::post('multipleupload', array(
     'as' => 'multiple',
     'uses' => 'multipleController@multipleFile'
 ));
+
+//secure file upload--------------------------------------------------------------------
+
 Route::get('securefileupload', 'securefileController@index');
 Route::post('securefileupload', array(
     'as' => 'secure',
     'uses' => 'securefileController@uploadFiles'
 ));
 
+Route::get('websiteupordown', 'counterController@websiteupordown');
+Route::post('websiteupordown', array(
+    'as' => 'upordown',
+    'uses' => 'counterController@upordown'
+));

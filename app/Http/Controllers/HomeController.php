@@ -16,9 +16,9 @@ class HomeController extends Controller{
 public function home(){
     
     
-    //Mail::send('emails.auth.test',array('name'=>'naveen'), function($message){
-       // $message->to('pawankumar.s@karmanya.co.in','naveen')->subject('test mail');
-    //});
+    Mail::send('emails.auth.test',array('name'=>'naveen'), function($message){
+        $message->to('pawankumar.s@karmanya.co.in','naveen')->subject('test mail');
+    });
     
     return view('home');
     

@@ -37,7 +37,7 @@ class counterController extends Controller {
 
     public function checkspelling() {
 
-        $word = Input::get('leter');
+        $word = Input::get('word');
         $result = null;
         $result2 = null;
         $success = 0;
@@ -47,10 +47,12 @@ class counterController extends Controller {
         foreach ($spelling as $users1) {
             foreach ($users1 as $x => $users2) {
          
-                similar_text($word, $users2, $percent);
-                if ($percent > 70) {
+             similar_text($word, $users2, $percent);
+             //echo $percent; exit;
+                if ($percent > 65) {
                     $result.="<li>" . $users2 . "</li>";
-                }
+                    echo $result;
+                
                 if ($percent > 90) {
                     $success = 1;
                     $result2 = "<li>" . $users2 . "</li>";
@@ -62,6 +64,7 @@ class counterController extends Controller {
         } else {
             echo $result2;
         }
+    }
     }
     public function guest()
     {
@@ -105,7 +108,55 @@ class counterController extends Controller {
     }
      public function chat123()
     {
-        return View('users/chat');
+//        return View('users/chat');
+        
+         if($_POST["message"]=="insert"){
+    
+   
+    $data=$_POST["data"];
+    $time=date("Y-m-d h:i:sa");
+    $query="insert into chat (user_id, message, timestamp)values( '".$_SESSION["user"]."','$data','$time')";
+    $result=mysqli_query($Link,$query);
+    
+    
+}
+    }
+     public function websiteupordown()
+    {
+        
+return View('users/upordown');
+    }
+    
+    public function upordown()
+    {
+        
+
+    $cs= curl_init($url=null);
+    curl_setopt($cs, CURLOPT_NOBODY, TRUE);
+    curl_setopt($cs, CURLOPT_FOLLOWLOCATION, TRUE);
+    $status_code=  curl_getinfo($cs,CURLINFO_HTTP_CODE);
+    return($status_code=200)?true:FALSE;
+
+
+if(isset($_POST['url'])==TRUE && empty($_POST['url'])==FALSE)
+{
+    $url=  trim($_POST['url']);
+    if(filter_var($url,FILTER_VALIDATE_URL)==true)
+    {
+        if(upordown($url)==TRUE)
+        {
+        echo 'Wensite url is up';
+    }  else {
+       echo 'sorry, Website url id down'; 
+    }
+    }
+   
+ else {
+        echo 'Invalid Url'; 
+    }
+    
+    
+ }
     }
 
 }

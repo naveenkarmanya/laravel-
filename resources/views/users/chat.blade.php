@@ -23,7 +23,7 @@
                 </div>
                 
             </div>
-            <textarea id="text" name="text" value="insert" placeholder="Text Here.."></textarea>
+            <textarea class="form-control" id="text" name="text" value="insert" placeholder="Text Here.."></textarea>
         </div>
         </div>
     </body>

@@ -14,8 +14,8 @@ $(document).ready(function () {
 //alert(word);
         $.ajax({
             url: 'checkspelling',
-            type: 'post',
-            data: {leter: word},
+           type: 'post',
+            data: {word: word},
             success: function (data) {
 //alert(data);
                 $("#list").html(data);
