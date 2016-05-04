@@ -160,9 +160,22 @@ Route::get('photoalbum', array(
 Route::get('folder/{folder}', array(
     'as' => 'folder',
     'uses' => 'counterController@folder'));
+
 // Translate Language--------------------------------------------------------------
 
-Route::get('translatelanguage', 'counterController@translate');
-Route::get('photoalbum', array(
-    'as' => 'photoalbum',
-    'uses' => 'counterController@album'));
+Route::get('translate/{language}', array(
+   "as" => 'translate',
+   'uses' => 'counterController@translate'
+));
+
+Route::get('translatepage', array(
+   "as" => 'translatepage',
+   'uses' => 'counterController@main'
+));
+Route::any('menu/{language}',array(
+   'as'=>'menu',
+    'uses'=>'counterController@menu'));
+
+//cross site -------------------------------------------------------------------------
+
+Route::get('crosssite', 'counterController@crosssite');

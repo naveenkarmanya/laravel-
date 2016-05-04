@@ -191,11 +191,72 @@ class counterController extends Controller {
     }
     
     
-     public function translate() {
-
-        return View('users/translate');
+        public function translate($language) {
+        
+        return view('users/translate', ['language' => $language]);
     }
 
-}
+    public function main() {
 
+        return view('users/translate', ['language' => "english"]);
+    }
+
+    public function menu($language) {
+
+        $object = new counterController();
+        $menu = $object->$language();
+        return view('users/menu',['menu'=>$menu,'language'=>$language]);
+    }
+
+    public function english() {
+
+        $lang = array(
+            "hello" => "Hello",
+            "coffee" => "Coffee",
+            "welcome" => "Welcome",
+            "pizza" => "Pizza",
+            "burger" => "Burger",
+            "rice" => "Rice",
+            "icecream" => "Ice Cream"
+        );
+
+        return $lang;
+    }
+
+    public function spanish() {
+
+        $lang = array(
+            "hello" => "Hola",
+            "coffee" => "Café",
+            "welcome" => "Bienvenido",
+            "pizza" => "la pizza",
+            "burger" => "hamburguesa",
+            "rice" => "arroz",
+            "icecream" => "helado"
+        );
+
+
+        return $lang;
+    }
+
+    public function telugu() {
+
+        $lang = array(
+            "hello" => "హలో",
+            "coffee" => "కాఫీ",
+            "welcome" => "స్వాగత",
+            "pizza" => "పిజ్జా",
+            "burger" => "బర్గర్",
+            "rice" => "వరి",
+            "icecream" => "ఐస్ క్రీం"
+        );
+
+
+        return $lang;
+    }
+        public function crosssite() {
+return view('users/crosssite');
+
+}
+}
 ?>

@@ -7,7 +7,7 @@
         <link href="/css/lightbox.css" rel="stylesheet">
         <link href="/css/styles.css"  rel="stylesheet">
 
-        <script type="text/javascript" src="/js/jquery.js"></script> 
+        <script type="text/javascript" src="/js/jquery.min.js"></script> 
         <script type="text/javascript" src="/js/lightbox-2.6.min.js"></script>
 
     </head>
