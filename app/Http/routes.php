@@ -179,3 +179,20 @@ Route::any('menu/{language}',array(
 //cross site -------------------------------------------------------------------------
 
 Route::get('crosssite', 'counterController@crosssite');
+
+//Mini Shopping Cart-------------------------------------------------------------------------
+
+Route::get('minishoppingcart', 'counterController@shoppingcart');
+Route::post('shoppingcart',array(
+   'as'=>'cart',
+    'uses'=>'counterController@cart'));
+
+//Mailing List--------------------------------------------------------------------------
+
+Route::get('mailinglist',array(
+    'as'=>'mailinglist',
+    'uses'=>'mailinglistController@mailinglist'
+));
+Route::post('maillistsubmit',array(
+    'as'=>'maillistsubmit',
+    'uses'=> 'mailinglistController@maillistsubmit'));

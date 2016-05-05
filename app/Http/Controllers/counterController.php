@@ -258,5 +258,39 @@ class counterController extends Controller {
 return view('users/crosssite');
 
 }
+public function  shoppingcart()
+{
+     return view('users/minishoppingcart');
+}
+
+ public function cart() {
+        $Name = Input::get('name');
+        $Price = Input::get('price');
+        $Shipping = Input::get('shipping');
+        $Quantity = Input::get('Quantity');
+        $Description= Input::get('description');
+        $validateError = null;
+        $validate = null;
+        $Insert = DB::table('products')->insert(
+                ['name' => $Name,
+                    'price' => $Price,
+                    'description' => $Description,
+                 'shipping' => $Shipping,
+                 'quantity' => $Quantity
+                 
+        ]);
+        if ($Insert == 1) {
+            $validate = "succesfully submited ";
+        } else {
+            $validateError = "Something went wrong";
+        }
+        $User = DB::table('products')->get();
+       
+               return view('users/shoppingcart',['User'=>$User]);
+
+ }
+ 
+
+
 }
 ?>
