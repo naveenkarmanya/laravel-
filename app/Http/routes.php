@@ -186,7 +186,15 @@ Route::get('minishoppingcart', 'counterController@shoppingcart');
 Route::post('shoppingcart',array(
    'as'=>'cart',
     'uses'=>'counterController@cart'));
-
+Route::post('shoppingcart123',array(
+   'as'=>'cartupdate',
+    'uses'=>'counterController@cartupdate'));
+Route::get('editsubmit',array(
+   'as'=>'editsubmit',
+    'uses'=>'counterController@editsubmit'));
+Route::get('deletesubmit',array(
+   'as'=>'deletesubmit',
+    'uses'=>'counterController@deletesubmit'));
 //Mailing List--------------------------------------------------------------------------
 
 Route::get('mailinglist',array(

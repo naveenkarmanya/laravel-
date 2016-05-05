@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>menu</title>
+        <title>Shopping Cart</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -28,7 +28,7 @@
             </div>
         </nav>
         <?php $x=0;?>
-        <div class="col-md-4 col-md-offset-3">
+        <div class="col-md-8 col-md-offset-2">
         <div class="table-responsive">
             <table class="table">
                 <tr>
@@ -38,6 +38,7 @@
                     <th>price</th>
                     <th>shipping</th>
                     <th>quantity</th>
+                    <th>Total Price</th>
                     
                 </tr>
                 @foreach ($User as $values) 
@@ -45,9 +46,11 @@
             
             @foreach ($values as $value => $key) 
        
-        
+        @if($value=='quantity')
+        <td>{{$key}}.<a href='{{URL::Route('editsubmit')}}'>EDIT</a>||<a href='{{URL::Route('deletesubmit')}}'>DELETE</a></td>
+       @else
             <td>{{$key}}</td>
-        
+        @endif
         @endforeach
         </tr>
         @endforeach

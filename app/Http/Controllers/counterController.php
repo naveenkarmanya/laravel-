@@ -269,6 +269,7 @@ public function  shoppingcart()
         $Shipping = Input::get('shipping');
         $Quantity = Input::get('Quantity');
         $Description= Input::get('description');
+        $total= Input::get('total');
         $validateError = null;
         $validate = null;
         $Insert = DB::table('products')->insert(
@@ -276,7 +277,8 @@ public function  shoppingcart()
                     'price' => $Price,
                     'description' => $Description,
                  'shipping' => $Shipping,
-                 'quantity' => $Quantity
+                 'quantity' => $Quantity,
+                'total' => $total
                  
         ]);
         if ($Insert == 1) {
@@ -285,12 +287,61 @@ public function  shoppingcart()
             $validateError = "Something went wrong";
         }
         $User = DB::table('products')->get();
+//        if($value=='quantity')
+//        {
+//            
+//        }
        
                return view('users/shoppingcart',['User'=>$User]);
 
  }
- 
+ public function cartupdate() {
+        
+        $Price = Input::get('price');
+        
+        $Quantity = Input::get('Quantity');
+       
+        $total= Input::get('total');
+        $validateError = null;
+        $validate = null;
+       
+        $User = DB::table('products')->where('products_id',4)->update(['quantity' => $Quantity,'price'=>$Price,'total'=>$total]);
+//        if($value=='quantity')
+//        {
+//            
+//        }
+       $User1 = DB::table('products')->get();
+               return view('users/shoppingcart',['User'=>$User1]);
 
+ }
+ 
+ public function deletesubmit() {
+        
+        $Price = Input::get('price');
+        
+        $Quantity = Input::get('Quantity');
+       
+        $total= Input::get('total');
+        $validateError = null;
+        $validate = null;
+       
+        $User = DB::table('products')->where('products_id',4)->delete();
+//        if($value=='quantity')
+//        {
+//            
+//        }
+       $User2 = DB::table('products')->get();
+               return view('users/shoppingcart',['User'=>$User2]);
+
+ }
+
+
+ public function  editsubmit()
+{
+     return view('users/editsubmit');
+}
+ 
+ 
 
 }
 ?>

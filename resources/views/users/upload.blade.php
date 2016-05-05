@@ -65,7 +65,7 @@
 
 <div class="container">
     <form class="form-horizontal" action="{{ URL::Route('imagesuccess')}}" method="post" enctype="multipart/form-data">
-                <h1><u>Create Album</u></h1>
+                <h1><u>Upload Image</u></h1>
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                     <label for="user" class="control-label col-md-2">Name*:</label>

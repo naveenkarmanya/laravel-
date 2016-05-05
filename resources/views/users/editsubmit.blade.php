@@ -57,40 +57,21 @@
              ?>
         <div class="container margintop" id="cart">
 
-            <form class="form-horizontal" action="{{ URL::route('cart')}}" method="post">
+            <form class="form-horizontal" action="{{ URL::route('cartupdate')}}" method="post">
                 <h1><u>Mini Shopping Cart</u></h1>
+                
+                
                 <div class="form-group">
-                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                    <label for="name" class="control-label col-md-2">Name*:</label>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required></div>
                     
-
-                </div>
-                <div class="form-group">
-                    <label for="product" class="control-label col-md-2">product*:</label>
-                    <div class="col-md-6">
-                        
-                           
-                            <input type="file" class="form-control" id="product" name="product" placeholder="product" required>
-                    </div>
-                   
-                </div>
-                <div class="form-group">
                     <label for="price" class="control-label col-md-2">Price*:</label>
                     <div class="col-md-6">
                         
-                           
+                           <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                             <input type="number" class="form-control" id="price" name="price" placeholder="Price" required>
                     </div>
                    
                 </div>
-                <div class="form-group">
-                    <label for="shipping" class="control-label col-md-2">Shipping*:</label>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="shipping" id="shipping" placeholder="shipping Address" required></div>
-                    
-                </div>
+                
                 <div class="form-group">
                     <label for="Quantity" class="control-label col-md-2">Quantity*:</label>
                     <div class="col-md-6">
@@ -106,12 +87,7 @@
                 </div>
 
 
-                <div class="form-group">
-                    <label for="description" class="control-label col-md-2">Description*:</label>
-                    <div class="col-md-6">
-                        <textarea class="form-control" id="description" name="description" placeholder="description" required></textarea></div>
-                    
-                </div>
+                
 
                 <input type="submit" class="btn btn-success" name='register' value='submit'>
             </form>
