@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class counterController extends Controller {
 
@@ -254,9 +255,54 @@ class counterController extends Controller {
 
         return $lang;
     }
-        public function crosssite() {
-return view('users/crosssite');
+ 
 
+  public function index() {
+         session()->regenerate();
+           session(['token' => base64_encode(openssl_random_pseudo_bytes(32))]);      
+$session= session('token');
+
+        return view('users/crosssite',['value'=>$session]);
+    }
+    public function indexsecond($message) {
+         session()->regenerate();
+           session(['token' => base64_encode(openssl_random_pseudo_bytes(32))]);      
+$session= session('token');
+
+        return view('users/crosssite',['value'=>$session,'message'=>$message]);
+    }
+    public function csrf() {
+        $result="";
+        $object=new counterController();
+        session()->regenerate();
+      $quantity=Input::get('quantity');
+      $product=Input::get('product');
+      $token=Input::get('token');
+      if(!empty($quantity) && !empty($product))
+      {
+          if($object->check($token)){
+        $result="processed";
+     
+          
+          }
+      }
+      return Redirect::route('csrfprocess',['message'=>$result]);
+   
+        
+    }
+
+public function check($token){
+      session()->regenerate();
+      $get=session()->get('token');
+     
+    if( $token===$get)
+    {
+       
+        Session::pull('token', 'default');
+        return TRUE;
+    }
+    return false;
+  
 }
 public function  shoppingcart()
 {
@@ -305,7 +351,7 @@ public function  shoppingcart()
         $validateError = null;
         $validate = null;
        
-        $User = DB::table('products')->where('products_id',4)->update(['quantity' => $Quantity,'price'=>$Price,'total'=>$total]);
+        $User = DB::table('products')->where('products_id',2)->update(['quantity' => $Quantity,'price'=>$Price,'total'=>$total]);
 //        if($value=='quantity')
 //        {
 //            
@@ -320,12 +366,12 @@ public function  shoppingcart()
         $Price = Input::get('price');
         
         $Quantity = Input::get('Quantity');
-       
+      
         $total= Input::get('total');
         $validateError = null;
         $validate = null;
        
-        $User = DB::table('products')->where('products_id',4)->delete();
+        $User = DB::table('products')->where('products_id',2)->delete();
 //        if($value=='quantity')
 //        {
 //            
@@ -341,7 +387,12 @@ public function  shoppingcart()
      return view('users/editsubmit');
 }
  
- 
+//Dynamic Rss----------------------------------------------------------------------------
+
+  public function  dynamicrss()
+{
+     return view('users/dynamicrss');
+}
 
 }
 ?>

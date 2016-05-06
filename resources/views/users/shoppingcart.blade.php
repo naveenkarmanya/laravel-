@@ -47,9 +47,9 @@
             @foreach ($values as $value => $key) 
        
         @if($value=='quantity')
-        <td>{{$key}}.<a href='{{URL::Route('editsubmit')}}'>EDIT</a>||<a href='{{URL::Route('deletesubmit')}}'>DELETE</a></td>
+        <td>{{$key}}. <a href='{{URL::Route('editsubmit')}}'>EDIT</a>  ||  <a href='{{URL::Route('deletesubmit')}}'>DELETE</a></td>
        @else
-            <td>{{$key}}</td>
+            <td>{{$key}}</td> 
         @endif
         @endforeach
         </tr>

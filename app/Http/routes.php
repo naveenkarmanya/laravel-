@@ -146,6 +146,8 @@ Route::post('securefileupload', array(
     'uses' => 'securefileController@uploadFiles'
 ));
 
+//Web Site UporDown------------------------------------------------------------------------
+
 Route::get('websiteupordown', 'counterController@websiteupordown');
 Route::post('websiteupordown', array(
     'as' => 'upordown',
@@ -178,8 +180,13 @@ Route::any('menu/{language}',array(
 
 //cross site -------------------------------------------------------------------------
 
-Route::get('crosssite', 'counterController@crosssite');
+Route::get('crosssite', 'counterController@index');
+Route::get('csrf{$message}', 'counterController@indexsecond');
 
+Route::post('csrf',array(
+   'as'=>'csrf',
+    'uses'=>'counterController@csrf'));
+Route::get('csrf{$token}', 'counterController@check');
 //Mini Shopping Cart-------------------------------------------------------------------------
 
 Route::get('minishoppingcart', 'counterController@shoppingcart');
@@ -204,3 +211,13 @@ Route::get('mailinglist',array(
 Route::post('maillistsubmit',array(
     'as'=>'maillistsubmit',
     'uses'=> 'mailinglistController@maillistsubmit'));
+
+//Dynamic RSS-----------------------------------------------------------------------------
+
+
+Route::get('dynamicrss', 'counterController@dynamicrss');
+
+//URL Shorten----------------------------------------------------------------------------
+
+Route::get('UrlShorten','UrlController@index');
+Route::post('shorten','UrlController@shorten');
