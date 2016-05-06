@@ -176,6 +176,16 @@ class uploadController extends Controller {
         }
          return View('users/myalbum',['users2' => $result]);
     }
+//      public function folder($folder) {
+//
+//        $path = 'data/' . $folder;
+//        $file = File::Files($path);
+//        //print_r($file);
+//        return View('users/myalbum', ['Photoalbum_image' => $folder, "image" => $file]);
+//    }
+    
+    
+    
     public function about() {
         return view('users/about');
     }

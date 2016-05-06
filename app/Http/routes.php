@@ -80,6 +80,9 @@ Route::get('user/myalbum', array(
     'as' => 'myalbum',
     'uses' => 'uploadController@myalbum'
 ));
+//Route::get('folder/{folder}', array(
+//    'as' => 'folder',
+//    'uses' => 'uploadController@folder'));
 Route::get('user/about', array(
     'as' => 'about',
     'uses' => 'uploadController@about'
@@ -180,13 +183,16 @@ Route::any('menu/{language}',array(
 
 //cross site -------------------------------------------------------------------------
 
-Route::get('crosssite', 'counterController@index');
-Route::get('csrf{$message}', 'counterController@indexsecond');
+Route::get("/crosssite",'counterController@index');
+Route::post('Csrf', array(
+   "as" => 'csrf',
+   'uses' => 'counterController@csrf'
+));
+Route::get('csrfprocess/{message}',array(
+    'as'=>'csrfprocess',
+    'uses'=>'counterController@indexsecond'
+));
 
-Route::post('csrf',array(
-   'as'=>'csrf',
-    'uses'=>'counterController@csrf'));
-Route::get('csrf{$token}', 'counterController@check');
 //Mini Shopping Cart-------------------------------------------------------------------------
 
 Route::get('minishoppingcart', 'counterController@shoppingcart');
@@ -221,3 +227,17 @@ Route::get('dynamicrss', 'counterController@dynamicrss');
 
 Route::get('UrlShorten','UrlController@index');
 Route::post('shorten','UrlController@shorten');
+
+//BBCODE---------------------------------------------------------------------------
+
+Route::get('bbcode','bbcodeController@bbcode');
+
+//Shout Box--------------------------------------------------------------------------
+
+Route::get('shoutbox',array(
+    'as'=>'shoutbox',
+    'uses' =>'shoutboxController@shoutbox'));
+Route::post('shoutboxsubmit',array(
+    'as'=>'shoutboxsubmit',
+    'uses'=> 'shoutboxController@shoutboxsubmit'));
+

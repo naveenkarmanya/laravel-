@@ -56,8 +56,9 @@
 
     <div class="container-fluid margintop">
         <div class="row">
-            <div class="well result" id="album">
+            <div class="well result col-md-4" id="album">
                @foreach($users2 as $key)
+<!--                <a href="{{URL::route('folder',["folder"=>$key])}}">{{$key}}</a> <br/>-->
                <a href="{{URL::Route('Counter')}}"> {{$key}}</a>
                @endforeach
                 
@@ -65,5 +66,22 @@
             
         </div>
     </div>
+<!--        <div class="container">
+            <div class="content">
+                @if(isset($Photoalbum_folder))
+                <b>{{$choice}}</b><br/>
+                @foreach($Photoalbum_folder as $folder)
+                <a href="{{URL::route('folder',["folder"=>$folder])}}">{{$folder}}</a> <br/>
+                @endforeach
+                @endif
+                @if(isset($image))  
+                @foreach($image as $path)
+                <a href="/{{$path}}" data-lightbox='nondatabasealbum'><img src="/{{$path}}" width="100" height="100" /></a>
+                @endforeach
+                @endif  
+                <br/><a href="{{URL::route('myalbum')}}">Back to Album</a>
+            </div>
+
+        </div>-->
 </body>
 </html>

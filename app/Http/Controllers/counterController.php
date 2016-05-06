@@ -281,13 +281,20 @@ $session= session('token');
       if(!empty($quantity) && !empty($product))
       {
           if($object->check($token)){
-        $result="processed";
+        $result="ordered processed";
      
           
           }
+          
       }
-      return Redirect::route('csrfprocess',['message'=>$result]);
-   
+      else
+          {
+              $result="Somthing went Wrong!Please check it.";
+              
+          }
+          
+      
+   return Redirect::route('csrfprocess',['message'=>$result]);
         
     }
 
@@ -351,7 +358,7 @@ public function  shoppingcart()
         $validateError = null;
         $validate = null;
        
-        $User = DB::table('products')->where('products_id',2)->update(['quantity' => $Quantity,'price'=>$Price,'total'=>$total]);
+        $User = DB::table('products')->where('products_id',1)->update(['quantity' => $Quantity,'price'=>$Price,'total'=>$total]);
 //        if($value=='quantity')
 //        {
 //            
@@ -371,7 +378,7 @@ public function  shoppingcart()
         $validateError = null;
         $validate = null;
        
-        $User = DB::table('products')->where('products_id',2)->delete();
+        $User = DB::table('products')->where('products_id',1)->truncate();
 //        if($value=='quantity')
 //        {
 //            
