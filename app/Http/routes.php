@@ -277,3 +277,11 @@ Route::post('paid',array(
     'as'=>'paid',
     'uses'=>'likebuttonController@paid'
 ));
+
+//Like Button---------------------------------------------------------------------
+
+Route::get('LikeButton',array(
+    'as'=>'LikeButton',
+    'uses'=>'LikeController@index'));
+Route::post('like_add','LikeController@like_add');
+Route::post('like_get','LikeController@like_get');
