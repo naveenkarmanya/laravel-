@@ -22,7 +22,7 @@
         <nav>
             @include('shoppingcart/dashboard')
         </nav>
-        <div class="container">
+        <div class="container well">
           <div class=" col-md-6 col-md-offset-2">
               <h1><u>Payment</u> <u>Successfully</u> <u>done</u> </h1>
               <p id="top">Name:{{$name}}</p>

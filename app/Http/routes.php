@@ -174,54 +174,54 @@ Route::get('folder/{folder}', array(
 // Translate Language--------------------------------------------------------------
 
 Route::get('translate/{language}', array(
-   "as" => 'translate',
-   'uses' => 'counterController@translate'
+    "as" => 'translate',
+    'uses' => 'counterController@translate'
 ));
 
 Route::get('translatepage', array(
-   "as" => 'translatepage',
-   'uses' => 'counterController@main'
+    "as" => 'translatepage',
+    'uses' => 'counterController@main'
 ));
-Route::any('menu/{language}',array(
-   'as'=>'menu',
-    'uses'=>'counterController@menu'));
+Route::any('menu/{language}', array(
+    'as' => 'menu',
+    'uses' => 'counterController@menu'));
 
 //cross site -------------------------------------------------------------------------
 
-Route::get("/crosssite",'counterController@index');
+Route::get("/crosssite", 'counterController@index');
 Route::post('Csrf', array(
-   "as" => 'csrf',
-   'uses' => 'counterController@csrf'
+    "as" => 'csrf',
+    'uses' => 'counterController@csrf'
 ));
-Route::get('csrfprocess/{message}',array(
-    'as'=>'csrfprocess',
-    'uses'=>'counterController@indexsecond'
+Route::get('csrfprocess/{message}', array(
+    'as' => 'csrfprocess',
+    'uses' => 'counterController@indexsecond'
 ));
 
 //Mini Shopping Cart-------------------------------------------------------------------------
 
 Route::get('MinishoppingCart', 'counterController@shoppingcart');
-Route::post('shoppingcart',array(
-   'as'=>'cart',
-    'uses'=>'counterController@cart'));
-Route::post('shoppingcart123',array(
-   'as'=>'cartupdate',
-    'uses'=>'counterController@cartupdate'));
-Route::get('editsubmit',array(
-   'as'=>'editsubmit',
-    'uses'=>'counterController@editsubmit'));
-Route::get('deletesubmit',array(
-   'as'=>'deletesubmit',
-    'uses'=>'counterController@deletesubmit'));
+Route::post('shoppingcart', array(
+    'as' => 'cart',
+    'uses' => 'counterController@cart'));
+Route::post('shoppingcart123', array(
+    'as' => 'cartupdate',
+    'uses' => 'counterController@cartupdate'));
+Route::get('editsubmit', array(
+    'as' => 'editsubmit',
+    'uses' => 'counterController@editsubmit'));
+Route::get('deletesubmit', array(
+    'as' => 'deletesubmit',
+    'uses' => 'counterController@deletesubmit'));
 //Mailing List--------------------------------------------------------------------------
 
-Route::get('mailinglist',array(
-    'as'=>'mailinglist',
-    'uses'=>'mailinglistController@mailinglist'
+Route::get('mailinglist', array(
+    'as' => 'mailinglist',
+    'uses' => 'mailinglistController@mailinglist'
 ));
-Route::post('maillistsubmit',array(
-    'as'=>'maillistsubmit',
-    'uses'=> 'mailinglistController@maillistsubmit'));
+Route::post('maillistsubmit', array(
+    'as' => 'maillistsubmit',
+    'uses' => 'mailinglistController@maillistsubmit'));
 
 //Dynamic RSS-----------------------------------------------------------------------------
 
@@ -230,77 +230,77 @@ Route::get('dynamicrss', 'counterController@dynamicrss');
 
 //URL Shorten----------------------------------------------------------------------------
 
-Route::get('UrlShorten','UrlController@index');
-Route::post('shorten','UrlController@shorten');
+Route::get('UrlShorten', 'UrlController@index');
+Route::post('shorten', 'UrlController@shorten');
 
 //BBCODE---------------------------------------------------------------------------
 
-Route::get('bbcode','bbcodeController@bbcode');
+Route::get('bbcode', 'bbcodeController@bbcode');
 
 //Shout Box--------------------------------------------------------------------------
 
-Route::get('shoutbox',array(
-    'as'=>'shoutbox',
-    'uses' =>'shoutboxController@shoutbox'));
-Route::post('shoutboxsubmit',array(
-    'as'=>'shoutboxsubmit',
-    'uses'=> 'shoutboxController@shoutboxsubmit'));
+Route::get('shoutbox', array(
+    'as' => 'shoutbox',
+    'uses' => 'shoutboxController@shoutbox'));
+Route::post('shoutboxsubmit', array(
+    'as' => 'shoutboxsubmit',
+    'uses' => 'shoutboxController@shoutboxsubmit'));
 
 //MiniShopping Cart---------------------------------------------------------------------
 
-Route::get('minishoppingcart',array(
-    'as'=>'minishoppingcart',
-    'uses'=>'likebuttonController@shoppingcart'
+Route::get('minishoppingcart', array(
+    'as' => 'minishoppingcart',
+    'uses' => 'likebuttonController@shoppingcart'
 ));
-Route::post('addtocart',array(
-    'as'=>'addtocart',
-    'uses'=>'likebuttonController@addcart'
+Route::post('addtocart', array(
+    'as' => 'addtocart',
+    'uses' => 'likebuttonController@addcart'
 ));
-Route::post('checkcart','likebuttonController@checkcart');
-Route::post('checkout',array(
-    'as'=>'checkout',
-    'uses'=>'likebuttonController@checkout'
+Route::post('checkcart', 'likebuttonController@checkcart');
+Route::post('checkout', array(
+    'as' => 'checkout',
+    'uses' => 'likebuttonController@checkout'
 ));
-Route::get('incrementproduct/{id}',array(
-    'as'=>'incrementproduct',
-    'uses'=>'likebuttonController@addproduct'
+Route::get('incrementproduct/{id}', array(
+    'as' => 'incrementproduct',
+    'uses' => 'likebuttonController@addproduct'
 ));
 
-Route::get('decrementproduct/{id}',array(
-    'as'=>'decrementproduct',
-    'uses'=>'likebuttonController@deductproduct'
+Route::get('decrementproduct/{id}', array(
+    'as' => 'decrementproduct',
+    'uses' => 'likebuttonController@deductproduct'
 ));
-Route::get('deleteproduct/{id}',array(
-    'as'=>'deleteproduct',
-    'uses'=>'likebuttonController@deleteproduct'
+Route::get('deleteproduct/{id}', array(
+    'as' => 'deleteproduct',
+    'uses' => 'likebuttonController@deleteproduct'
 ));
-Route::post('payment',array(
-    'as'=>'payment',
-    'uses'=>'likebuttonController@payment'
+Route::post('payment', array(
+    'as' => 'payment',
+    'uses' => 'likebuttonController@payment'
 ));
-Route::post('paid',array(
-    'as'=>'paid',
-    'uses'=>'likebuttonController@paid'
+Route::post('paid', array(
+    'as' => 'paid',
+    'uses' => 'likebuttonController@paid'
 ));
 
 //Like Button---------------------------------------------------------------------
 
-Route::get('LikeButton',array(
-    'as'=>'LikeButton',
-    'uses'=>'LikeController@index'));
-Route::post('like_add','LikeController@like_add');
-Route::post('like_get','LikeController@like_get');
+Route::get('LikeButton', array(
+    'as' => 'LikeButton',
+    'uses' => 'LikeController@index'));
+Route::post('like_add', 'LikeController@like_add');
+Route::post('like_get', 'LikeController@like_get');
 
 // Website Rating System------------------------------------------------------------------------
 
 Route::get('/WebsiteRating', array(
-    'as'=>'websiteindex',
-    'uses'=> 'WebsiteRateController@index'
-   ));
+    'as' => 'websiteindex',
+    'uses' => 'WebsiteRateController@index'
+));
 Route::get('/WebsiteRating/{item}/{rating}/{limit}', array(
-		'as' => 'rating',
-		'uses' => 'WebsiteRateController@rating'
-	));
+    'as' => 'rating',
+    'uses' => 'WebsiteRateController@rating'
+));
 
 
-Route::get("/BBcCode",'BbcController@index');
+

@@ -2,20 +2,20 @@
 <html>
     <head>
         <title>First template</title>
-<meta name="csrf-token" content="{{ csrf_token() }}" />
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/album.js"></script>
+        <script type="text/javascript" src="/js/album.js"></script>
         <style>
-            
+
             .margintop
             {
                 margin: 30px;
                 position: relative;
                 top: 100px;
             }
-            
+
 
         </style>
 
@@ -57,32 +57,32 @@
     <div class="container-fluid margintop">
         <div class="row">
             <div class="well result col-md-4" id="album">
-               @foreach($users2 as $key)
-         
-<!--                <a href="{{URL::route('folder',["folder"=>$key])}}">{{$key}}</a> <br/>-->
-               <a href="{{URL::Route('myimages',['images'=>$key])}}"> {{$key}}</a>
-               @endforeach
-                
-            </div>
-            
-        </div>
-    </div>
-<!--        <div class="container">
-            <div class="content">
-                @if(isset($users2))
-                
-                @foreach($users2 as $folder)
-                <a href="{{URL::route('folder',["folder"=>$folder])}}">{{$folder}}</a> <br/>
+                @foreach($users2 as $key)
+
+                <!--                <a href="{{URL::route('folder',["folder"=>$key])}}">{{$key}}</a> <br/>-->
+                <a href="{{URL::Route('myimages',['images'=>$key])}}"> {{$key}}</a>
                 @endforeach
-                @endif
-                @if(isset($image))  
-                @foreach($image as $path)
-                <a href="/{{$path}}" data-lightbox='nondatabasealbum'><img src="/{{$path}}" width="100" height="100" /></a>
-                @endforeach
-                @endif  
-                <br/><a href="{{URL::route('myalbum')}}">Back to Album</a>
+
             </div>
 
-        </div>-->
+        </div>
+    </div>
+    <!--        <div class="container">
+                <div class="content">
+                    @if(isset($users2))
+                    
+                    @foreach($users2 as $folder)
+                    <a href="{{URL::route('folder',["folder"=>$folder])}}">{{$folder}}</a> <br/>
+                    @endforeach
+                    @endif
+                    @if(isset($image))  
+                    @foreach($image as $path)
+                    <a href="/{{$path}}" data-lightbox='nondatabasealbum'><img src="/{{$path}}" width="100" height="100" /></a>
+                    @endforeach
+                    @endif  
+                    <br/><a href="{{URL::route('myalbum')}}">Back to Album</a>
+                </div>
+    
+            </div>-->
 </body>
 </html>

@@ -14,7 +14,7 @@
             @include('shoppingcart/dashboard')
         </nav>
         
-          <div class=" col-md-6 col-md-offset-2 top">
+          <div class=" col-md-6 col-md-offset-2 top well">
               <h1 class="top col-md-offset-3"> <u>Account</u> <u>Details</u></h1>
             <form method="post" action="{{ URL::route('paid')}}">
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">

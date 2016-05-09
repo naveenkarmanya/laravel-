@@ -39,10 +39,10 @@
         <div class="container">
             <div class="content">
                 <form action="{{URL::route('currencyconverter')}}" method="post">
-                    <input type="text" name="amount"/><br>
-                    <input type="text" name="from"/><br>
-                    <input type="text" name="to"/><br>                    
-                    <input type="submit" name="convert"/>
+                    <b> Amount: </b><input type="text" name="amount"/><br>
+                    <b> From:  </b>  <input type="text" name="from"/><br>
+                    <b> To:    </b>  <input type="text" name="to"/><br>                    
+                   <input type="submit" name="convert" value="Convert"/>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
                 @if(isset($currency_value))

@@ -6,7 +6,7 @@
         <title>Mini Shopping Cart</title>
         <script src="/js/jquery.js" type="text/javascript"></script>
         <script src="/js/shoppingcart.js" type='text/javascript'></script>
-        
+       
     </head>
     <body>
         <nav>
@@ -14,12 +14,12 @@
            @include('shoppingcart/dashboard')
         </nav>
         <?php $id=null;?>
-        <div class="container">
-            <div class="col-md-5 cart">
+        <div class="container" >
+            <div class="col-md-5 cart" >
                 
             </div>
             
-            <div class="col-md-5 col-md-offset-3">
+            <div class="col-md-5 col-md-offset-3 well " >
                 @foreach($product as $values)
                 @foreach($values as $value=>$key)
                 @if($value=='Id')

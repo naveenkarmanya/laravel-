@@ -12,22 +12,23 @@
 
     </head>
     <body> 
-  <div class="container">   
+        <div class="container">   
             <div class="bottom">
-            @if($images)
-            @foreach($images as $value=>$key)
-            <div class="col-md-2 ">
-            <a href="/{{$key}}" data-lightbox='nondatabasealbum'><img src="/{{$key}}" height="170" width="160"></a><br>
-            <?php $path=explode("/",$key);
-           $path1=  implode(",",$path);?>
-<!--            <a href="{{ URL::route('myimages',['name'=>$path1])}}">[X]</a>
-            </div>-->
-            @endforeach
+                @if($images)
+                @foreach($images as $value=>$key)
+                <div class="col-md-2 ">
+                    <a href="/{{$key}}" data-lightbox='nondatabasealbum'><img src="/{{$key}}" height="170" width="160"></a><br>
+                    <?php $path = explode("/", $key);
+                    $path1 = implode(",", $path);
+                    ?>
+                    <!--            <a href="{{ URL::route('myimages',['name'=>$path1])}}">[X]</a>
+                                </div>-->
+                    @endforeach
 
-            @endif
-            <br/><a href="{{URL::route('myalbum')}}">Back to Album</a>
-        </div>
-        </div>
-       
+                    @endif
+                    <br/><a href="{{URL::route('myalbum')}}">Back to Album</a>
+                </div>
+            </div>
+
     </body>
 </html>

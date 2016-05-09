@@ -60,18 +60,18 @@ class uploadController extends Controller {
         $LoginPassword = Input::get('login_password');
         $validateError = null;
         $validate = null;
-        
+
         session()->regenerate();
-        
+
         $users = DB::table('Forum')->select('Forumid')->where('EmailAddress', $LoginEmailAddress)->where('Password', $LoginPassword)->get();
-        foreach($users as $values){
-            foreach($values as $value=>$key){
-             $UserId=$key;   
+        foreach ($users as $values) {
+            foreach ($values as $value => $key) {
+                $UserId = $key;
             }
         }
-       
+
         if ($users) {
- session(['id'=>$UserId]);
+            session(['id' => $UserId]);
             return view("users/LoginSubmit", array(
                 // "Details"=>$users
                 'message' => 'Successfully Login'
@@ -112,7 +112,7 @@ class uploadController extends Controller {
     }
 
     public function imagesuccess() {
-        
+
         $select = Input::get('select');
         $validateError = null;
         $validate = null;
@@ -131,7 +131,7 @@ class uploadController extends Controller {
         session()->regenerate();
         $UserId = session('id');
         $image = Input::file('upload');
-       
+
         $path = 'directory/' . $UserId . "/" . $select . "/";
         $fileName = Input::file('upload')->getClientOriginalName();
 
@@ -160,52 +160,46 @@ class uploadController extends Controller {
         // echo $result;
         //return View('search',['users1' => $users]);
     }
-    
-     public function myalbum() {
-        
-         session()->regenerate();
+
+    public function myalbum() {
+
+        session()->regenerate();
         $UserId = session('id');
         //$result='';
         $users = DB::table('users')->select('select')->get();
         foreach ($users as $users1) {
             foreach ($users1 as $x => $users2) {
-                $result[]= $users2;
+                $result[] = $users2;
                 //print_r($users2);
             }
-           
-           
         }
-         return View('users/myalbum',['users2' => $result]);
+        return View('users/myalbum', ['users2' => $result]);
     }
-      public function folder($folder) {
+
+    public function folder($folder) {
 
         $path = 'directory/' . $folder;
         $file = File::Files($path);
         print_r($file);
         return View('users/myalbum', ['users2' => $folder, "image" => $file]);
     }
-    
-    
-    
+
     public function about() {
         return view('users/about');
     }
 
-    
-     public function myimages($images) {
-      session()->regenerate();
+    public function myimages($images) {
+        session()->regenerate();
         $UserId = session('id');
-        $path = 'directory/' . $UserId . '/'.$images ;
+        $path = 'directory/' . $UserId . '/' . $images;
         $images = File::files($path);
-       
 
-            return view('users/myimages', array(
-                'images' => $images
-            ));
-        }
-    
+
+        return view('users/myimages', array(
+            'images' => $images
+        ));
     }
 
-
+}
 
 ?>
