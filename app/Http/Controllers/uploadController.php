@@ -170,7 +170,7 @@ class uploadController extends Controller {
         foreach ($users as $users1) {
             foreach ($users1 as $x => $users2) {
                 $result[]= $users2;
-                print_r($users2);
+                //print_r($users2);
             }
            
            
