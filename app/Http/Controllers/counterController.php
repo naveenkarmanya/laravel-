@@ -163,15 +163,15 @@ class counterController extends Controller {
 
         $page = $_SERVER['PHP_SELF'];
         $column = 2;
-        $base = "directory";
-        $thumbs = "1";
+        $base = "data";
+        $thumbs = "thumbs";
         @$get_album = $_GET['album'];
         if (!$get_album) {
             $choice = "Select an Album";
             $handle = File::directories($base);
             // print_r($handle);
             foreach ($handle as $file) {
-                if ($file != 'directory/1') {
+                if ($file != 'data/thumbs') {
                     $file = substr($file, "5");
 
                     // echo $file;
@@ -180,7 +180,7 @@ class counterController extends Controller {
             }
         }
 
-        return View('users/myalbum', ['Photoalbum_folder' => $folder, "choice" => $choice]);
+        return View('users/photoalbum', ['Photoalbum_folder' => $folder, "choice" => $choice]);
     }
 
     public function folder($folder) {
@@ -188,7 +188,7 @@ class counterController extends Controller {
         $path = 'data/' . $folder;
         $file = File::Files($path);
         //print_r($file);
-        return View('users/myalbum', ['Photoalbum_image' => $folder, "image" => $file]);
+        return View('users/photoalbum', ['Photoalbum_image' => $folder, "image" => $file]);
     }
     
     

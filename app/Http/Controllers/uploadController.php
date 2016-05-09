@@ -177,13 +177,13 @@ class uploadController extends Controller {
         }
          return View('users/myalbum',['users2' => $result]);
     }
-//      public function folder($folder) {
-//
-//        $path = 'data/' . $folder;
-//        $file = File::Files($path);
-//        //print_r($file);
-//        return View('users/myalbum', ['Photoalbum_image' => $folder, "image" => $file]);
-//    }
+      public function folder($folder) {
+
+        $path = 'directory/' . $folder;
+        $file = File::Files($path);
+        print_r($file);
+        return View('users/myalbum', ['users2' => $folder, "image" => $file]);
+    }
     
     
     
@@ -192,36 +192,17 @@ class uploadController extends Controller {
     }
 
     
-     public function myimages() {
-       $page = $_SERVER['PHP_SELF'];
-        $column = 2;
-        $base = "directory";
-        $thumbs = "1";
-        @$get_album = $_GET['album'];
-        if (!$get_album) {
-           
-            $handle = File::directories($base);
-            // print_r($handle);
-            foreach ($handle as $file) {
-                if ($file != 'directory/myalbum') {
-                    $file = substr($file, "5");
+     public function myimages($images) {
+      session()->regenerate();
+        $UserId = session('id');
+        $path = 'directory/' . $UserId . '/'.$images ;
+        $images = File::files($path);
+       
 
-                    // echo $file;
-                    $folder[] = $file;
-                }
-            }
+            return view('users/myimages', array(
+                'images' => $images
+            ));
         }
-
-        return View('users/myimages', ['users2' => $folder]);
-    }
-
-    public function folder($folder) {
-
-        $path = 'data/' . $folder;
-        $file = File::Files($path);
-        //print_r($file);
-        return View('users/myimages', ['Photoalbum_image' => $folder, "image" => $file]);
-    }
     
     }
 

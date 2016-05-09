@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            PHOTO ALBUM
+            Image Album
         </title>
         <link href="/css/lightbox.css" rel="stylesheet">
         <link href="/css/styles.css"  rel="stylesheet">
@@ -12,22 +12,22 @@
 
     </head>
     <body> 
-<!--        <div class="container">
-            <div class="content">
-                @if(isset($Photoalbum_folder))
-                <b>{{$choice}}</b><br/>
-                @foreach($Photoalbum_folder as $folder)
-                <a href="{{URL::route('folder',["folder"=>$folder])}}">{{$folder}}</a> <br/>
-                @endforeach
-                @endif
-                @if(isset($image))  
-                @foreach($image as $path)
-                <a href="/{{$path}}" data-lightbox='nondatabasealbum'><img src="/{{$path}}" width="100" height="100" /></a>
-                @endforeach
-                @endif  
-                <br/><a href="{{URL::route('myimages')}}">Back to Album</a>
-            </div>
+  <div class="container">   
+            <div class="bottom">
+            @if($images)
+            @foreach($images as $value=>$key)
+            <div class="col-md-2 ">
+            <a href="/{{$key}}" data-lightbox='nondatabasealbum'><img src="/{{$key}}" height="170" width="160"></a><br>
+            <?php $path=explode("/",$key);
+           $path1=  implode(",",$path);?>
+<!--            <a href="{{ URL::route('myimages',['name'=>$path1])}}">[X]</a>
+            </div>-->
+            @endforeach
 
-        </div>-->
+            @endif
+            <br/><a href="{{URL::route('myalbum')}}">Back to Album</a>
+        </div>
+        </div>
+       
     </body>
 </html>

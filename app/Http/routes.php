@@ -81,7 +81,7 @@ Route::get('user/myalbum', array(
     'uses' => 'uploadController@myalbum'
 ));
 
-Route::get('user/myimages', array(
+Route::get('user/myimages/{images}', array(
     'as' => 'myimages',
     'uses' => 'uploadController@myimages'));
 Route::get('folder/{folder}', array(
