@@ -14,7 +14,7 @@
         </nav>
         <?php $id=null;?>
         <div class="container">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="table-responsive">
             <table class="table">
                 <tr>
@@ -25,8 +25,10 @@
                     <th></th>
                     <th></th>
                     <th>Price</th>
+                    <th>Total Price</th>
                     <th></th>
                     <th></th>
+                    
                     
                 </tr>
                 <?php $total=0;?>
@@ -47,7 +49,7 @@
                 <?php $price=$price*$key;?>
                 @endif
                 @endforeach
-                <td><?php $total=$total+$price;  echo $price;?></td>
+                <td><?php $total=$total+$price;  echo $price;?>/-</td>
                 <td><a href="{{ URL::route('deleteproduct',['id'=>$id])}}">DELETE</a></td>
                 </tr>
                 @endforeach

@@ -170,6 +170,7 @@ class uploadController extends Controller {
         foreach ($users as $users1) {
             foreach ($users1 as $x => $users2) {
                 $result[]= $users2;
+                print_r($users2);
             }
            
            
@@ -190,6 +191,40 @@ class uploadController extends Controller {
         return view('users/about');
     }
 
-}
+    
+     public function myimages() {
+       $page = $_SERVER['PHP_SELF'];
+        $column = 2;
+        $base = "directory";
+        $thumbs = "1";
+        @$get_album = $_GET['album'];
+        if (!$get_album) {
+           
+            $handle = File::directories($base);
+            // print_r($handle);
+            foreach ($handle as $file) {
+                if ($file != 'directory/myalbum') {
+                    $file = substr($file, "5");
+
+                    // echo $file;
+                    $folder[] = $file;
+                }
+            }
+        }
+
+        return View('users/myimages', ['users2' => $folder]);
+    }
+
+    public function folder($folder) {
+
+        $path = 'data/' . $folder;
+        $file = File::Files($path);
+        //print_r($file);
+        return View('users/myimages', ['Photoalbum_image' => $folder, "image" => $file]);
+    }
+    
+    }
+
+
 
 ?>

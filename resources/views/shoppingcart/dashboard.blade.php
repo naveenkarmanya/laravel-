@@ -19,8 +19,9 @@
     <body>
         <nav class="navbar-default navbar-fixed">
             <div class="container">
+                <h2>Mini Shopping Cart</h2>
                 <div class="navbar-header">
-                    <a class="navbar-brand" id="cloud"><span  class="glyphicon glyphicon-home"></span></a>
+                 
                     <button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="sr-only"> Toggle</span>
                         <span class="icon-bar"></span>
@@ -31,7 +32,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav pull-right">
-                        <li ><a href="{{ URL::route('minishoppingcart')}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li ><a href="{{ URL::route('minishoppingcart')}}">Home</a></li>
                     </ul>
                 </div>
             </div>

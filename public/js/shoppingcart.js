@@ -43,7 +43,7 @@ function add(value){
             type: 'post',
             data: {value: value},
             success:function(data){
-                if(data=="Product already added to cart"){
+                if(data=="Product Already There.No Need to add"){
                     
                     alert(data);
                 }

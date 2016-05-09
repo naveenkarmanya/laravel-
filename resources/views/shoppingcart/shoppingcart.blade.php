@@ -10,6 +10,7 @@
     </head>
     <body>
         <nav>
+            
            @include('shoppingcart/dashboard')
         </nav>
         <?php $id=null;?>
@@ -28,7 +29,7 @@
                 <p><b>{{$key}}</b></p>
                 @else
                 @if($value=='Price')
-                <p>{{$key}} <button class="btn btn-default" onclick="add(<?php echo $id;?>)">Add To Cart</button></p>
+                <h4>Amount Rs:<p>{{$key}}/- <br></h4><button class="btn btn-default" onclick="add(<?php echo $id;?>)">Add To Cart</button></p>
                 @else
                 <p>{{$key}}</p>
                 @endif

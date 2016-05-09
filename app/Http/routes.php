@@ -80,9 +80,14 @@ Route::get('user/myalbum', array(
     'as' => 'myalbum',
     'uses' => 'uploadController@myalbum'
 ));
-//Route::get('folder/{folder}', array(
-//    'as' => 'folder',
-//    'uses' => 'uploadController@folder'));
+
+Route::get('user/myimages', array(
+    'as' => 'myimages',
+    'uses' => 'uploadController@myimages'));
+Route::get('folder/{folder}', array(
+    'as' => 'folder',
+    'uses' => 'uploadController@folder'));
+
 Route::get('user/about', array(
     'as' => 'about',
     'uses' => 'uploadController@about'
@@ -195,7 +200,7 @@ Route::get('csrfprocess/{message}',array(
 
 //Mini Shopping Cart-------------------------------------------------------------------------
 
-Route::get('minishoppingcart', 'counterController@shoppingcart');
+Route::get('MinishoppingCart', 'counterController@shoppingcart');
 Route::post('shoppingcart',array(
    'as'=>'cart',
     'uses'=>'counterController@cart'));
@@ -285,3 +290,17 @@ Route::get('LikeButton',array(
     'uses'=>'LikeController@index'));
 Route::post('like_add','LikeController@like_add');
 Route::post('like_get','LikeController@like_get');
+
+// Website Rating System------------------------------------------------------------------------
+
+Route::get('/WebsiteRating', array(
+    'as'=>'websiteindex',
+    'uses'=> 'WebsiteRateController@index'
+   ));
+Route::get('/WebsiteRating/{item}/{rating}/{limit}', array(
+		'as' => 'rating',
+		'uses' => 'WebsiteRateController@rating'
+	));
+
+
+Route::get("/BBcCode",'BbcController@index');
