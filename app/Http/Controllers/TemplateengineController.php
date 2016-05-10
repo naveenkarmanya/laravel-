@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Translation\FileLoader;
 use Illuminate\Contracts\Filesystem\Factory;
+use Illuminate\Support\Facades\DB;
 
 class TemplateengineController extends Controller {
 
@@ -56,4 +57,35 @@ class TemplateengineController extends Controller {
         }
     }
 
+      public function search() {
+
+        return view('users/searchengine');
+    }
+
+    public function searchengine() {
+        $returnvalue = null;
+        $search = Input::get('search');
+        if ($search != "") {
+            $result = DB::table('search')->select('title', 'description', 'url')->where('keywords', 'like', "%" . $search . "%")->get();
+            foreach ($result as $values) {
+                foreach ($values as $value => $key) {
+                    if ($value == "title") {
+                        $returnvalue.="<p><b>" . $key . "</b></p>";
+                    }
+                    if ($value == "description") {
+                        $returnvalue.="<p>" . $key . "</p>";
+                    }
+                    if ($value == "url") {
+                        $returnvalue.="<p><a href='" . $key . "'>" . $key . "</a></p>";
+                    }
+                }
+            }
+        }
+        $message = "Your search for " . $search . " produced these results";
+        return view('users/searchengine', ['result' => $returnvalue, 'message' => $message]);
+    }
+
+    
+    
+    
 }

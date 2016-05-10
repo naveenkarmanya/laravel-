@@ -110,8 +110,8 @@ class likebuttonController extends Controller {
         $price=Input::get('price');
         $name=Input::get('name');
         $account=Input::get('number');
-        DB::table('Tempcart')->truncate();
-        return view('shoppingcart/paidview', ['price' => $price,'name'=>$name,'account'=>$account]);
+//        DB::table('Tempcart')->truncate();
+        return view('shoppingcart/paidview', ['name'=>$name,'account'=>$account,'price' => $price]);
     }
     }
 

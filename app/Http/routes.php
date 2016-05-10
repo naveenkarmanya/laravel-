@@ -302,5 +302,16 @@ Route::get('/WebsiteRating/{item}/{rating}/{limit}', array(
     'uses' => 'WebsiteRateController@rating'
 ));
 
+//search Engine-----------------------------------------------------------------------
+
+Route::get('searchengine', array(
+    'as' => 'searchengine',
+    'uses' => 'TemplateengineController@search'
+));
+Route::post('searchengine/result', array(
+    'as' => 'searchenginesubmit',
+    'uses' => 'TemplateengineController@searchengine'
+));
+
 
 

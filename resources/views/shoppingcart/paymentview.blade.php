@@ -4,7 +4,7 @@
         
         <title>Cart</title>
         <link href="/css/autosuggest.css" rel="stylesheet">
-        <script src="/js/jquery.js" type="text/javascript"></script>
+        <script src="/js/jquery.min.js" type="text/javascript"></script>
         
         <script src="/js/shoppingcart.js" type='text/javascript'></script>
         
@@ -28,7 +28,7 @@
                         <input type="password" placeholder="Enter Password" name="password" class="form-control " required>
                     </div>
                  <div class="col-sm-12 top">
-                     <h2><u>Total</u> <u>Payment</u>: {{$price}}</h2>
+                     <h2><u>Total</u> <u>Payment</u>: Rs.{{$price}}/-</h2>
                  </div>
                 <div class="col-sm-2 col-sm-offset-3 top">
                 <input type="submit" class="btn btn-success" value="MakePayment">

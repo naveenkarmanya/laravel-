@@ -4,7 +4,9 @@
         
         <title>Cart</title>
         <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <script src="/js/jquery.js" type="text/javascript"></script>
+        <script src="/js/jquery.min.js" type="text/javascript"></script>
+        
+        <script src="/js/shoppingcart.js" type='text/javascript'></script>
         <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <style>
             p{
@@ -27,7 +29,7 @@
               <h1><u>Payment</u> <u>Successfully</u> <u>done</u> </h1>
               <p id="top">Name:{{$name}}</p>
             <p>Account:{{$account}}</p>
-            <p>Total Payment:{{$price}}</p>
+            <p>Total Payment:Rs.{{$price}}/-</p>
             </div>
             
             <div class="col-md-6 col-md-offset-2 alert alert-success">
@@ -36,3 +38,4 @@
         </div>
     </body>
 </html>
+<?php  echo $price ?>
