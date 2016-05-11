@@ -73,46 +73,48 @@ class likebuttonController extends Controller {
 
         $resultquery = DB::table('shoppingcart')
                 ->join('Tempcart', 'shoppingcart.Id', '=', 'Tempcart.productid')
-                ->select('shoppingcart.Id','shoppingcart.Name', 'shoppingcart.Description', 'Tempcart.quantity','shoppingcart.Price')
+                ->select('shoppingcart.Id', 'shoppingcart.Name', 'shoppingcart.Description', 'Tempcart.quantity', 'shoppingcart.Price')
                 ->get();
 
         $product = json_decode(json_encode($resultquery), true);
         return view('shoppingcart/cartview', ['product' => $product]);
     }
-    
-    public function addproduct($id){
-        
-        
-            DB::table('Tempcart')->where('productid','=',$id)->increment('quantity');
-            $obj=new likebuttonController();
-            return $obj->checkout();
-    }
-    
-    public function deductproduct($id){
-        
-            DB::table('Tempcart')->where('productid','=',$id)->decrement('quantity');
-            $obj=new likebuttonController();
-            return $obj->checkout();
+
+    public function addproduct($id) {
+
+
+        DB::table('Tempcart')->where('productid', '=', $id)->increment('quantity');
+        $obj = new likebuttonController();
+        return $obj->checkout();
     }
 
-    public function deleteproduct($id){
-        
-        DB::table('Tempcart')->where('productid','=',$id)->delete();
-            $obj=new likebuttonController();
-            return $obj->checkout();
+    public function deductproduct($id) {
+
+        DB::table('Tempcart')->where('productid', '=', $id)->decrement('quantity');
+        $obj = new likebuttonController();
+        return $obj->checkout();
     }
-    public function payment(){
-        $price=Input::get('price');
+
+    public function deleteproduct($id) {
+
+        DB::table('Tempcart')->where('productid', '=', $id)->delete();
+        $obj = new likebuttonController();
+        return $obj->checkout();
+    }
+
+    public function payment() {
+        $price = Input::get('price');
         return view('shoppingcart/paymentview', ['price' => $price]);
     }
 
-    public function paid(){
-        $price=Input::get('price');
-        $name=Input::get('name');
-        $account=Input::get('number');
+    public function paid() {
+        $price = Input::get('price');
+        $name = Input::get('name');
+        $account = Input::get('number');
 //        DB::table('Tempcart')->truncate();
-        return view('shoppingcart/paidview', ['name'=>$name,'account'=>$account,'price' => $price]);
+        return view('shoppingcart/paidview', ['name' => $name, 'account' => $account, 'price' => $price]);
     }
-    }
+
+}
 
 ?>

@@ -50,7 +50,7 @@ class counterController extends Controller {
 
                 similar_text($word, $users2, $percent);
                 //echo $percent; exit;
-                if ($percent > 65) {
+                if ($percent > 70) {
                     $result.="<li>" . $users2 . "</li>";
                     echo $result;
 

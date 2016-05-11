@@ -85,13 +85,13 @@ class LikeController extends Controller {
     $count=$object->like_count($_POST['article_id']);
     $count=json_decode(json_encode($count), true);
     foreach ($count as $value) {
-     echo $value['ArticleLike'];   
+     echo ++$value['ArticleLike'];   
     }
     
 }
     }
-
-    function article_exists($article_id) {
+  
+                function article_exists($article_id) {
     $article_id = (int) $article_id;
       return DB::table('LikeArticles')->where('ArticleId',$article_id)->count('ArticleId');
     //return (mysql_result(mysql_query("SELECT COUNT(`article_id`) FROM articles WHERE `article_id`= $article_id"), 0) == 0 ? false : true);
