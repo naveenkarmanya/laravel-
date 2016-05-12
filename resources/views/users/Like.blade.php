@@ -23,8 +23,8 @@
             @foreach ($Result as $result_data)
             <ul>
          
-              {{$result_data['ArticleTitle']."(". $result_data['ArticleLike'].")"}} 
-             <li><p> {{$result_data['ArticleTitle']}}</p><p> <a href="{{$article_id}}" class="like" onClick="like_add({{$result_data['ArticleId']}})">Like</a> <span id="article_{{$result_data['ArticleId']}}_likes">{{ $result_data['ArticleLike']}}</span> Like this</p></li>
+<!--              {{$result_data['ArticleTitle']."(". $result_data['ArticleLike'].")"}} -->
+             <li><p> {{$result_data['ArticleTitle']}}</p><p> <a href="#" class="like" onClick="like_add({{$result_data['ArticleId']}})">Like</a> <span id="article_{{$result_data['ArticleId']}}_likes">{{ $result_data['ArticleLike']}}</span> Like this</p></li>
               @endforeach
               </ul>
               @endif

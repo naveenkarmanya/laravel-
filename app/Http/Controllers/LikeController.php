@@ -68,7 +68,7 @@ class LikeController extends Controller {
         if ($object->article_exists($input)) {
 //            $article_id = $input;
             if ($object->previously_liked($input)) {
-                echo 'You have liked this';
+                echo 'You have already liked this';
             } else {
                 $object->add_likes($input);
                 echo 'success';
