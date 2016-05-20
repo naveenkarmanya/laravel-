@@ -34,7 +34,7 @@
     </head>
     <body>
 
-        <script> var name = "<?php echo $name . "<br>"; ?>";</script>
+        <script> var name = {{ $name}}</script>
         <script src="/js/chat.js"></script>
 
         <div class="chat">

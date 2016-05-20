@@ -370,3 +370,25 @@ Route::post('searchengine/result', array(
 
 
 
+//laravel practice ----fetching data-------------------
+//----------------------------------------------------------------------
+
+Route::get('/fetchdata',function(){
+    
+    $people=['naveen','pawan','kumar'];
+    return view('Practice/Fetchdata',compact('people'));
+    
+});
+Route::get('cards','cardController@cards');
+//    return view('Practice/cards');
+    Route::get('cards/{card}','cardController@show');
+    Route::post('cards',array(
+        'as'=>'addnote',
+        'uses'=>'cardController@note'
+        ));
+    Route::get('edit','cardController@update');
+    
+    
+
+
+    
